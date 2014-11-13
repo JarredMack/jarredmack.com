@@ -1,7 +1,9 @@
-angular.module( 'ngBoilerplate.about', [
+angular.module( 'jarredmack.about', [
   'ui.router',
   'placeholders',
-  'ui.bootstrap'
+  'ui.bootstrap',
+
+  'services.jmapi'
 ])
 
 .config(function config( $stateProvider ) {
@@ -17,13 +19,9 @@ angular.module( 'ngBoilerplate.about', [
   });
 })
 
-.controller( 'AboutCtrl', function AboutCtrl( $scope ) {
-  // This is simple a demo for UI Boostrap.
-  $scope.dropdownDemoItems = [
-    "The first choice!",
-    "And another choice for you.",
-    "but wait! A third!"
-  ];
-})
+.controller( 'AboutCtrl', ['$scope', 'JMApi', function AboutCtrl( $scope, JMApi ) {
+
+    //JMApi.test('testing');
+}])
 
 ;
