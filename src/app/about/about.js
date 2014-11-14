@@ -21,7 +21,10 @@ angular.module( 'jarredmack.about', [
 
 .controller( 'AboutCtrl', ['$scope', 'JMApi', function AboutCtrl( $scope, JMApi ) {
 
-    //JMApi.test('testing');
+    JMApi.get('experience')
+        .then(function(response) {
+            console.log(response);
+        });
 }])
 
 ;
