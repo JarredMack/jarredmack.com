@@ -37,7 +37,6 @@ angular.module( 'services.jmapi', [
                         deferred.resolve(response);
                     })
                     .error(function(response) {
-                        //handle error
                         deferred.reject(response);
                     })
                 ;
@@ -62,7 +61,6 @@ angular.module( 'services.jmapi', [
             }, self.cached.expires);
         }
 
-        //GET Method - HTTP Get to endpoint or return cached copy
         //POST Method(?) - HTTP POST to endpoint
 
         return self;
