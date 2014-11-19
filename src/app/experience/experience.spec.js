@@ -7,6 +7,7 @@
 describe( 'experience section', function() {
     var $rootScope, $scope, controller;
 
+    beforeEach( module( 'jarredmack' ) );
     beforeEach( module( 'jarredmack.experience' ) );
 
     beforeEach(inject(function(_$rootScope_, $controller, $q) {

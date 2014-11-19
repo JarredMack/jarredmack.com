@@ -1,8 +1,4 @@
-angular.module( 'services.jmapi', [
-  'ui.router',
-  'placeholders',
-  'ui.bootstrap'
-])
+angular.module( 'services.jmapi', [])
 
 .service( 'JMApi', ['$http', '$q', '$timeout', function JMApi($http, $q, $timeout) {
         var self = this;

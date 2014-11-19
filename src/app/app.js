@@ -7,13 +7,15 @@ angular.module( 'jarredmack', [
 
   'services.jmapi',
 
+  'directives.imageAccordion',
+
   'ui.router',
   'ui.bootstrap',
   'placeholders'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/about' );
+  $urlRouterProvider.otherwise( '/experience' );
 })
 
 .run( function run () {
