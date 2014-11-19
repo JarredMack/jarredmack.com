@@ -5,10 +5,6 @@
  * automatically.
  */
 describe( 'API request handling service', function() {
-    var getResponse = {
-        test: "data"
-    };
-
     var $mockHttp, $rootScope, JMApi, theResponse;
 
     beforeEach( module( 'services.jmapi' ) );
