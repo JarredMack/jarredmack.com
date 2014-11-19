@@ -1,10 +1,4 @@
-angular.module( 'jarredmack.experience', [
-  'ui.router',
-  'placeholders',
-  'ui.bootstrap',
-
-  'services.jmapi'
-])
+angular.module( 'jarredmack.experience', [])
 
 .config(function config( $stateProvider ) {
   $stateProvider.state( 'experience', {

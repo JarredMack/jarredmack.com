@@ -5,8 +5,11 @@ angular.module( 'jarredmack', [
   'jarredmack.about',
   'jarredmack.experience',
 
+  'services.jmapi',
 
-  'ui.router'
+  'ui.router',
+  'ui.bootstrap',
+  'placeholders'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
