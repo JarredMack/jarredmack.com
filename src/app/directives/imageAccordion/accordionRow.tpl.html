@@ -1,4 +1,9 @@
-<div>
-    this is the nested stuff
-    <div ng-transclude></div>
+<div class="accordion-row" ng-class="{ alternate: !!alternate}">
+    <div class="accordion-image">
+        <img src="http://placehold.it/60x60" alt=""/>
+    </div>
+    <div class="accordion-content">
+        <div class="title" ng-click="visible = !visible">{{title}}</div>
+        <div ng-show="visible" ng-transclude></div>
+    </div>
 </div>

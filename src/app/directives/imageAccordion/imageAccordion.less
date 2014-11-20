@@ -1,0 +1,50 @@
+@image-size: 60px;
+@base-color: #ccc;
+
+.accordion-row {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 @image-size;
+    position: relative;
+    background: @base-color;
+    margin-top: -1px;
+    .accordion-image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: @image-size;
+        height: @image-size;
+        //@TODO Make this neater / mixin
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+        z-index: 100;
+    }
+    .accordion-content {
+        //@TODO Make this neater
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        .title {
+            margin: 0;
+            font-size: 16px;
+            height: @image-size/2;
+        }
+    }
+    &.alternate {
+        background: lighten(@base-color, 10);
+        .accordion-image {
+            left: initial;
+            top: initial;
+            right: 0;
+            bottom: 0;
+            margin-top: -(@image-size/2);
+            border-left: 0;
+            border-right: 1px solid black;
+        }
+        .accordion-content {
+            border-right: 0;
+            border-left: 1px solid black;
+        }
+    }
+}

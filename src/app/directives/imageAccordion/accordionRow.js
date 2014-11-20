@@ -4,7 +4,14 @@ angular.module( 'directives.imageAccordion.accordionRow', [])
         return {
             transclude: true,
             restrict: 'E',
-            templateUrl: 'directives/imageAccordion/accordionRow.tpl.html'
+            templateUrl: 'directives/imageAccordion/accordionRow.tpl.html',
+            scope: {
+                title: '@',
+                alternate: '='
+            },
+            link: function(scope, element, attrs) {
+                scope.visible = false;
+            }
         };
 }])
 
