@@ -1,0 +1,28 @@
+<div ng-repeat="job in experience">
+    <h2 ng-click="job.visible = !job.visible">{{job.title}}</h2>
+    <div ng-show="job.visible">
+        <h3>Websites developed in this position</h3>
+        <ul>
+            <li ng-repeat="site in job.portfolio">
+                {{site.title}} - <a href="{{site.url}}">{{site.url}}</a>
+                <ul ng-if="site.description">
+                    <li>{{site.description}}</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Skills and languages used in this position</h3>
+        <ul>
+            <li ng-repeat="skill in job.skill">
+                {{skill}}
+            </li>
+        </ul>
+
+        <h3 ng-if="job.other.length > 0">Other skills applied in this position</h3>
+        <ul ng-if="job.other.length > 0">
+            <li ng-repeat="other in job.other">
+                {{other}}
+            </li>
+        </ul>
+    </div>
+</div>

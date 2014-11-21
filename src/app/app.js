@@ -3,6 +3,7 @@ angular.module( 'jarredmack', [
   'templates-common',
 
   'jarredmack.about',
+  'jarredmack.experience',
 
 
   'ui.router'
