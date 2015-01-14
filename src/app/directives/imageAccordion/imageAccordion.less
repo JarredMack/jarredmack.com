@@ -1,6 +1,7 @@
 @image-size: 60px;
 @border-size: 1px;
 @base-color: #ccc;
+@alt-color: lighten(@base-color, 10);
 @border-color: darken(@base-color, 20);
 @title-height: (@image-size - (2 * @border-size)) / 2;
 
@@ -41,8 +42,16 @@
             overflow: hidden;
         }
     }
+    .alt-background {
+        background: @alt-color;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: @image-size;
+        height: 100%;
+    }
     &.alternate {
-        background: lighten(@base-color, 10);
+        background: @alt-color;
         .accordion-image {
             left: initial;
             top: initial;
@@ -54,6 +63,11 @@
         .accordion-content {
             border-right: 0;
             border-left: @border-size solid @border-color;
+        }
+        .alt-background {
+            right: initial;
+            left: 0;
+            background: @base-color;
         }
     }
 }
