@@ -2,6 +2,7 @@
 @border-size: 1px;
 @base-color: #ccc;
 @border-color: darken(@base-color, 20);
+@title-height: (@image-size - (2 * @border-size)) / 2;
 
 .accordion-row {
     width: 100%;
@@ -9,7 +10,7 @@
     padding: 0 @image-size;
     position: relative;
     background: @base-color;
-    margin-top: -@border-size;
+    margin-top: -@border-size * 2;
     .accordion-image {
         position: absolute;
         left: 0;
@@ -32,7 +33,8 @@
         .title {
             margin: 0;
             font-size: 16px;
-            height: (@image-size - @border-size)/2;
+            height: @title-height;
+            line-height: @title-height;
             cursor: pointer;
         }
         .content {
