@@ -1,5 +1,7 @@
 @image-size: 60px;
+@border-size: 1px;
 @base-color: #ccc;
+@border-color: darken(@base-color, 20);
 
 .accordion-row {
     width: 100%;
@@ -7,28 +9,27 @@
     padding: 0 @image-size;
     position: relative;
     background: @base-color;
-    margin-top: -1px;
+    margin-top: -@border-size;
     .accordion-image {
         position: absolute;
         left: 0;
         top: 0;
         width: @image-size;
         height: @image-size;
-        //@TODO Make this neater / mixin
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        border-left: 1px solid black;
+        border-top: @border-size solid @border-color;
+        border-bottom: @border-size solid @border-color;
+        border-left: @border-size solid @border-color;
         z-index: 100;
     }
     .accordion-content {
-        //@TODO Make this neater
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        border-bottom: 1px solid black;
+        border-top: @border-size solid @border-color;
+        border-right: @border-size solid @border-color;
+        border-bottom: @border-size solid @border-color;
         .title {
             margin: 0;
             font-size: 16px;
             height: @image-size/2;
+            cursor: pointer;
         }
         .content {
             overflow: hidden;
@@ -43,11 +44,11 @@
             bottom: 0;
             margin-top: -(@image-size/2);
             border-left: 0;
-            border-right: 1px solid black;
+            border-right: @border-size solid @border-color;
         }
         .accordion-content {
             border-right: 0;
-            border-left: 1px solid black;
+            border-left: @border-size solid @border-color;
         }
     }
 }
