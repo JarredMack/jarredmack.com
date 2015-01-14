@@ -1,0 +1,182 @@
+/**
+ * A collection of LESS Helper classes
+ *
+ * @author Jarred Mack
+ */
+
+/**
+ * Aspect ratios
+ */
+.aspect(@ratio) {
+    padding-bottom: unit(@ratio * 100, %);
+
+    img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/**
+ * Display helpers
+ */
+.center() {
+    margin-left: auto;
+    margin-right: auto;
+}
+.center-content(@horizontal: true) {
+    height: 100%;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em; /* Adjusts for spacing */
+    }
+
+    > div {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: -1px;
+    }
+}
+.center-content(@horizontal: true) when (@horizontal = true) {
+    text-align: center;
+    > div {
+        .center();
+    }
+}
+.centered {
+    .center();
+
+    &.vertical {
+        .center-content();
+    }
+}
+.breakpoint-loop(@loops, @initial-width, @breakpoint-width, @initial-breaks, @i: 1) when (@i <= @loops) {
+    @size: 100% / (@initial-breaks + (@i));
+    @media screen and (min-width: (@initial-width + (@i * @breakpoint-width))) {
+        width: ~"calc(@{size} - @{image-margin})";
+    }
+    .breakpoint-loop(@loops, @initial-width, @breakpoint-width, @initial-breaks, (@i + 1));
+}
+
+/**
+ * Animation helper classes
+ */
+//Transition property - needs to handle special cases such as -webkit-transform. For -webkit-X as the only property, null must be specified as the first param
+.transition-property(@params: null, @special: null) when not(@params = null) {
+    -webkit-transition-property: @params;
+    -moz-transition-property: @params;
+    -o-transition-property: @params;
+    transition-property: @params;
+}
+
+.transition-property(@params: null, @special: null) when not(@params = null) and not(@special = null) {
+    -webkit-transition-property: @params, ~"-webkit-@{special}";
+    -moz-transition-property: @params, ~"-moz-@{special}";
+    -o-transition-property: @params, ~"-o-@{special}";
+    transition-property: @params, @special;
+}
+
+.transition-property(@params: null, @special: null) when (@params = null) and not (@special = null) {
+    -webkit-transition-property: ~"-webkit-@{special}";
+    -moz-transition-property: ~"-moz-@{special}";
+    -o-transition-property: ~"-o-@{special}";
+    transition-property: @special;
+}
+
+.transition-duration(@params) {
+    -webkit-transition-duration: @params;
+    -moz-transition-duration: @params;
+    -o-transition-duration: @params;
+    transition-duration: @params;
+}
+
+.transition-delay(@params) {
+    -webkit-transition-delay: @params;
+    -moz-transition-delay: @params;
+    -o-transition-delay: @params;
+    transition-delay: @params;
+}
+
+.transition-timing-function(@value) {
+    -webkit-transition-timing-function: @value;
+    -moz-transition-timing-function: @value;
+    -o-transition-timing-function: @value;
+    transition-timing-function: @value;
+}
+
+.animation(@properties) {
+    -webkit-animation: @properties;
+    -moz-animation: @properties;
+    -ms-animation: @properties;
+    animation: @properties;
+}
+
+.animation-delay(@delay) {
+    -webkit-animation-delay: @delay;
+    -moz-animation-delay: @delay;
+    -ms-animation-delay: @delay;
+    animation-delay: @delay;
+}
+
+/**
+ * Keyframes mixin
+ *
+ * http://stackoverflow.com/a/22085449
+ *
+ * USAGE
+ * & {
+ *   .keyframes([name], [extra vars]...);.-frames([extra vars]...){
+ *       .. animation frames ..
+ *   }
+ * }
+ */
+.keyframes(@name, @extra...) {
+    @-webkit-keyframes @name {
+        .-frames(@extra);
+    }
+    @-moz-keyframes @name {
+        .-frames(@extra);
+    }
+    @keyframes @name {
+        .-frames(@extra);
+    }
+}
+
+/**
+ * Form helpers
+ */
+.placeholder(@color, @opacity: 1) {
+    &::-webkit-input-placeholder{
+        color: @color;
+        opacity: @opacity;
+    }
+    &:-moz-placeholder{
+        color: @color;
+        opacity: @opacity;
+    }
+    &::-moz-placeholder{
+        color: @color;
+        opacity: @opacity;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+        opacity: @opacity;
+    }
+}
+
+/**
+ * Colour helpers
+ */
+.gradient(@from, @to) {
+    background: @to;
+    background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
+    background: -moz-linear-gradient(top,  @from,  @to);
+    background: -ms-linear-gradient(top,  @from,  @to);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='@from', endColorstr='@to');
+}
