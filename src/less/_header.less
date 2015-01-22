@@ -3,4 +3,33 @@
 .header {
     background: @site-colour-medium;
     height: @header-size;
+    .site-logo {
+        .center-content(false);
+        float: left;
+        .logo-content {
+            text-align: center;
+            margin-left: @gutter-size / 2;
+            font-size: @font-size-medium;
+            .name {
+                font-size: @font-size-large;
+            }
+        }
+    }
+    .menu {
+        float: right;
+        .center-content(false);
+        > div {
+            > ul {
+                list-style: none;
+                > li {
+                    float: left;
+                    font-size: @font-size-large;
+                    margin-right: @gutter-size;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -49,68 +49,27 @@ pre {
   padding: 5px;
 }
 
-.page-header {
-  margin-top: 60px;
-
-  &:first-child {
-    margin-top: 20px;
-  }
+div {
+    color: @site-inverted-colour;
+    font-family: 'Helvetica', 'Arial';
+    font-size: 12px;
 }
 
-h2 {
-  margin: 20px 0;
-  color: #666;
-}
-
-
-/**
- * Navigation
- */
-
-.navbar {
-  margin-top: 20px;
-  
-  small {
-    font-size: 60%;
-  }
-}
-
-
-/**
- * Footer
- */
-
-.footer {
-  margin-top: 80px;
-
-  .footer-inner {
-    padding: 40px 0;
-    border-top: 1px solid #DDD;
-  }
-
-  .social {
-    float: right;
-    margin: 0;
-    list-style: none;
-
-    li {
-      float: left;
-      margin-left: 20px;
-
-      a, a:visited {
-        color: @gray-light;
+a {
+    color: @site-inverted-colour;
+    text-decoration: none;
+    &:active,
+    &:hover {
+        color: @site-highlight-colour;
         text-decoration: none;
-        font-size: 40px;
-        .transition( 250ms ease-in-out );
-
-        &:hover {
-          color: @gray;
-        }
-      }
     }
-  }
 }
 
+.container {
+    width: @container-width;
+    height: 100%;
+    .center();
+}
 
 /**
  * Now that all app-wide styles have been applied, we can load the styles for
