@@ -108,6 +108,26 @@ module.exports = function ( grunt ) {
           }
        ]   
       },
+      build_app_images: {
+        files: [
+          {
+            src: [ '**' ],
+            dest: '<%= build_dir %>/images/',
+            cwd: 'src/images',
+            expand: true
+          }
+       ]
+      },
+      build_app_partials: {
+        files: [
+          {
+            src: [ '**' ],
+            dest: '<%= build_dir %>/partials/',
+            cwd: 'src/partials',
+            expand: true
+          }
+       ]
+      },
       build_vendor_assets: {
         files: [
           { 
@@ -179,8 +199,8 @@ module.exports = function ( grunt ) {
           'module.prefix', 
           '<%= build_dir %>/src/**/*.js', 
           '<%= html2js.app.dest %>', 
-          '<%= html2js.common.dest %>', 
-          'module.suffix' 
+          '<%= html2js.common.dest %>',
+          'module.suffix'
         ],
         dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'
       }
@@ -475,6 +495,17 @@ module.exports = function ( grunt ) {
       },
 
       /**
+       * When images are changed, copy them. Note that this will *not* copy new
+       * files, so this is probably not very useful.
+       */
+      images: {
+        files: [
+          'src/images/**/*'
+        ],
+        tasks: [ 'copy:build_app_images' ]
+      },
+
+      /**
        * When index.html changes, we need to compile it.
        */
       html: {
@@ -488,9 +519,10 @@ module.exports = function ( grunt ) {
       tpls: {
         files: [ 
           '<%= app_files.atpl %>', 
-          '<%= app_files.ctpl %>'
+          '<%= app_files.ctpl %>',
+          '<%= app_files.ptpl %>'
         ],
-        tasks: [ 'html2js' ]
+        tasks: [ 'html2js', 'copy:build_app_partials' ]
       },
 
       /**
@@ -553,7 +585,8 @@ module.exports = function ( grunt ) {
    */
   grunt.registerTask( 'build', [
     'clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
-    'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
+    'concat:build_css', 'copy:build_app_assets', 'copy:build_app_images',
+    'copy:build_app_partials', 'copy:build_vendor_assets',
     'copy:build_appjs', 'copy:build_vendorjs', 'index:build', 'karmaconfig',
     'karma:continuous' 
   ]);
