@@ -1,6 +1,28 @@
 @import (reference) 'main.less';
 
 .footer {
-    background: @site-colour-dark;
+    background: @site-colour-medium;
     height: @footer-size;
+    .contact {
+        .employment-status {
+            margin-top: 10px;
+            > span {
+                font-weight: bold;
+            }
+            .unavailable {
+                color: #FF251C;
+            }
+            .soon {
+                color: #eea607;
+            }
+            .available {
+                color: #23c345;
+            }
+        }
+    }
+    .copyright {
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+    }
 }
