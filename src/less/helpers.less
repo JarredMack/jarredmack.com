@@ -125,6 +125,15 @@
 }
 
 /**
+ * Cross browser CSS3 Helpers
+ */
+.transform(@property) {
+    -webkit-transform: @property;
+        -ms-transform: @property;
+            transform: @property;
+}
+
+/**
  * Keyframes mixin
  *
  * http://stackoverflow.com/a/22085449

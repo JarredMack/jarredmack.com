@@ -21,18 +21,41 @@
  */
 .hamburger-animate(@size, @colour) {
     width: @size;
+    height: @size;
+    position: relative;
     .top,
     .middle,
     .bottom {
         width: 100%;
         height: @size / 10;
         background: @colour;
-        margin: @size / 3;
+        position: absolute;
     }
     .top {
+        top: 0;
     }
     .middle {
+        top: @size / 2;
+        margin-top: -(@size / 10 / 2); //Offset for 0.5 times the height
     }
     .bottom {
+        bottom: 0;
+    }
+    &.active {
+        .top {
+            .transform(rotate(45deg));
+            top: 5px;
+            left: 5px;
+            width: 85%;
+        }
+        .middle {
+            display: none;
+        }
+        .bottom {
+            .transform(rotate(-45deg));
+            bottom: 5px;
+            left: 5px;
+            width: 85%;
+        }
     }
 }
