@@ -1,4 +1,9 @@
-.slide {
+@import (reference) 'main.less';
+
+/**
+ * Transition Animations
+ */
+.slide-down {
     max-height: 300px;
 
     .transition-property(all);
@@ -8,5 +13,26 @@
     &.ng-hide {
         max-height: 0;
         display: block !important;
+    }
+}
+
+/**
+ * Animated Elements
+ */
+.hamburger-animate(@size, @colour) {
+    width: @size;
+    .top,
+    .middle,
+    .bottom {
+        width: 100%;
+        height: @size / 10;
+        background: @colour;
+        margin: @size / 3;
+    }
+    .top {
+    }
+    .middle {
+    }
+    .bottom {
     }
 }

@@ -73,6 +73,27 @@ a {
     .center();
 }
 
+.mobile {
+    display: block;
+    @media screen and (min-width: @breakpoint-mobile) {
+        display: none !important;
+    }
+}
+
+.tablet {
+    display: block;
+    @media screen and (min-width: @breakpoint-tablet) {
+        display: none !important;
+    }
+}
+
+.desktop {
+    display: block;
+    @media screen and (max-width: @breakpoint-mobile) {
+        display: none !important;
+    }
+}
+
 /**
  * Now that all app-wide styles have been applied, we can load the styles for
  * all the submodules and components we are using. 
