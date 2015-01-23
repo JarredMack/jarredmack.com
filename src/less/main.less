@@ -12,100 +12,23 @@
 
 @import '../../vendor/bootstrap/less/bootstrap.less';
 
-
-/**
- * This is our main variables file. We must include it last so we can overwrite any variable
- * definitions in our imported stylesheets.
- */
-
 @import 'variables.less';
-
-
-/**
- * Typography
- */
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Roboto Regular'), local('Roboto-Regular'), url(fonts/Roboto-Regular.woff) format('woff');
-}
-
-code, pre, .pre {
-  padding: 5px;
-  margin: 10px 0;
-  background-color: #EFEFEF;
-  border: 1px solid #DADADA;
-  border-radius: 3px;
-}
-
-code {
-  padding: 0 3px;
-}
-
-pre {
-  margin: 10px 0;
-  padding: 5px;
-}
-
-div {
-    color: @site-inverted-colour;
-    font-family: 'Helvetica', 'Arial';
-    font-size: 12px;
-}
-
-a {
-    color: @site-inverted-colour;
-    text-decoration: none;
-    &:active,
-    &:hover {
-        color: @site-highlight-colour;
-        text-decoration: none;
-    }
-}
-
-.container {
-    width: 100%;
-    max-width: @container-width;
-    height: 100%;
-    position: relative;
-    .center();
-}
-
-.mobile {
-    display: block;
-    @media screen and (min-width: @breakpoint-mobile) {
-        display: none !important;
-    }
-}
-
-.tablet {
-    display: block;
-    @media screen and (min-width: @breakpoint-tablet) {
-        display: none !important;
-    }
-}
-
-.desktop {
-    display: block;
-    @media screen and (max-width: @breakpoint-mobile) {
-        display: none !important;
-    }
-}
-
-/**
- * Now that all app-wide styles have been applied, we can load the styles for
- * all the submodules and components we are using. 
- *
- * TODO: In a later version of this boilerplate, I'd like to automate this.
- */
-
 @import 'helpers.less';
 @import 'animations.less';
 
+@import '_bootstrap.less';
 @import '_header.less';
 @import '_footer.less';
 
+/**
+ * Module specific stylesheets
+ */
 @import '../app/directives/imageAccordion/imageAccordion.less';
 
+/**
+ * Site global styles
+ */
+.content {
+    background: url('/images/background.jpg') no-repeat center;
+    background-size: cover;
+}
