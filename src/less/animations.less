@@ -19,7 +19,8 @@
 /**
  * Animated Elements
  */
-.hamburger-animate(@size, @colour) {
+.hamburger-animate(@size, @colour, @duration: 1s) {
+    @split-duration: @duration / 2;
     width: @size;
     height: @size;
     position: relative;
@@ -29,33 +30,53 @@
         width: 100%;
         height: @size / 10;
         background: @colour;
+        right: 0;
         position: absolute;
     }
     .top {
         top: 0;
+
+        .transition-property(top;transform;);
+        .transition-duration(@split-duration,@split-duration;);
+        .transition-delay(@split-duration, 0s;);
     }
     .middle {
         top: @size / 2;
         margin-top: -(@size / 10 / 2); //Offset for 0.5 times the height
+
+        .transition-property(width);
+        .transition-duration(@split-duration);
     }
     .bottom {
         bottom: 0;
+
+        .transition-property(bottom;transform;);
+        .transition-duration(@split-duration,@split-duration;);
+        .transition-delay(@split-duration, 0s;);
     }
     &.active {
         .top {
             .transform(rotate(45deg));
-            top: 5px;
-            left: 5px;
-            width: 85%;
+            top: 20%;
+            left: 30%;
+            width: 75%;
+
+            .transition-property(top;transform;);
+            .transition-duration(@split-duration,@split-duration;);
+            .transition-delay(0s, @split-duration;);
         }
         .middle {
-            display: none;
+            width: 0%;
         }
         .bottom {
             .transform(rotate(-45deg));
-            bottom: 5px;
-            left: 5px;
-            width: 85%;
+            bottom: 20%;
+            left: 30%;
+            width: 75%;
+
+            .transition-property(bottom;transform;);
+            .transition-duration(@split-duration,@split-duration;);
+            .transition-delay(0s, @split-duration;);
         }
     }
 }
