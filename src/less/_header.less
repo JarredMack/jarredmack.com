@@ -1,5 +1,7 @@
 @import (reference) 'main.less';
 
+@animate-duration: 0.5s;
+
 .header {
     background: @site-colour-medium;
     height: @header-size;
@@ -18,7 +20,7 @@
     .menu {
         float: right;
         .center-content(false);
-        > div {
+        .desktop {
             > ul {
                 list-style: none;
                 > li {
@@ -34,7 +36,31 @@
         .hamburger {
             margin-right: @gutter-size / 2;
             cursor: pointer;
-            .hamburger-animate(@header-size / 2, @site-inverted-colour, 0.5s);
+            .hamburger-animate(@header-size / 2, @site-inverted-colour, @animate-duration);
+        }
+    }
+    .side-nav {
+        position: absolute;
+        right: -@side-nav-size;
+        width: @side-nav-size;
+        z-index: 999;
+        background: @site-colour-light;
+        padding: 0 @gutter-size;
+
+        .transition-property(right);
+        .transition-duration(@animate-duration);
+
+        > ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            > li {
+                font-size: @font-size-large;
+                margin: @gutter-size 0;
+            }
+        }
+        &.active {
+            right: 0;
         }
     }
 }
