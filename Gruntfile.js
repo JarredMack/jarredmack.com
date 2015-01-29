@@ -118,6 +118,16 @@ module.exports = function ( grunt ) {
           }
        ]
       },
+      build_config_files: {
+          files: [
+              {
+                  src: [ '*.ico' ],
+                  dest: '<%= build_dir %>/',
+                  cwd: '.',
+                  expand: true
+              }
+          ]
+      },
       build_app_partials: {
         files: [
           {
@@ -506,6 +516,17 @@ module.exports = function ( grunt ) {
       },
 
       /**
+       * When config files are changed, copy them. This includes favicon, crawler
+       * files, etc.
+       */
+      config: {
+        files: [
+          'src/*.ico'
+        ],
+        tasks: [ 'copy:build_config_files' ]
+      },
+
+      /**
        * When index.html changes, we need to compile it.
        */
       html: {
@@ -586,7 +607,7 @@ module.exports = function ( grunt ) {
   grunt.registerTask( 'build', [
     'clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
     'concat:build_css', 'copy:build_app_assets', 'copy:build_app_images',
-    'copy:build_app_partials', 'copy:build_vendor_assets',
+    'copy:build_config_files', 'copy:build_app_partials', 'copy:build_vendor_assets',
     'copy:build_appjs', 'copy:build_vendorjs', 'index:build', 'karmaconfig',
     'karma:continuous' 
   ]);
