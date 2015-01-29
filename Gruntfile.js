@@ -123,7 +123,7 @@ module.exports = function ( grunt ) {
               {
                   src: [ '*.ico' ],
                   dest: '<%= build_dir %>/',
-                  cwd: '.',
+                  cwd: 'src',
                   expand: true
               }
           ]
