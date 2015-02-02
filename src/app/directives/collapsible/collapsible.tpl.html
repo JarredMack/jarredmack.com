@@ -1,9 +1,8 @@
 <div class="collapsible">
     <img class="logo" ng-src="{{logo}}" alt=""/>
     <div class="title" ng-click="visible = !visible">
-        <div>
-            {{title}}
-        </div>
+        <div ng-if="!!titleTemplate" ng-include="titleTemplate" onload="data = titleData"></div>
+        <div ng-if="!titleTemplate">{{title}}</div>
     </div>
     <div ng-show="visible" class="collapsible-content slide-down">
         <div ng-transclude></div>

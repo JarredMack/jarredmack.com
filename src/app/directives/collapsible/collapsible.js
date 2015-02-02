@@ -7,7 +7,9 @@ angular.module( 'directives.collapsible', [])
             templateUrl: 'directives/collapsible/collapsible.tpl.html',
             scope: {
                 title: '@',
-                logo: '='
+                logo: '=',
+                titleTemplate: '=',
+                titleData: '='
             },
             link: function(scope, element, attrs) {
                 scope.visible = false;
