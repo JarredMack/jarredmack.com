@@ -1,11 +1,11 @@
-<div class="collapsible" ng-class="{ alternate: !!alternate}">
-    <div class="alt-background"></div>
-    <div class="collapsible-image">
-        <img src="http://placehold.it/60x60" alt=""/>
+<div class="collapsible">
+    <img class="logo" src="http://placehold.it/60x60" alt=""/>
+    <div class="title" ng-click="visible = !visible">
+        <div>
+            {{title}}
+        </div>
     </div>
-    <div class="collapsible-content">
-        <div ng-if="!!alternate" ng-show="visible" class="content slide" ng-transclude></div>
-        <div class="title" ng-click="visible = !visible">{{title}}</div>
-        <div ng-if="!alternate"  ng-show="visible" class="content slide" ng-transclude></div>
+    <div ng-show="visible" class="collapsible-content slide-down">
+        <div ng-transclude></div>
     </div>
 </div>
