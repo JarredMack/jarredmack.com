@@ -7,7 +7,7 @@ angular.module( 'jarredmack', [
 
   'services.jmapi',
 
-  'directives.imageAccordion',
+  'directives.collapsible',
 
   'ui.router',
   'ui.bootstrap',

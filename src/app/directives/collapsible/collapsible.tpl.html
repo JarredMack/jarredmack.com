@@ -1,9 +1,9 @@
-<div class="accordion-row" ng-class="{ alternate: !!alternate}">
+<div class="collapsible" ng-class="{ alternate: !!alternate}">
     <div class="alt-background"></div>
-    <div class="accordion-image">
+    <div class="collapsible-image">
         <img src="http://placehold.it/60x60" alt=""/>
     </div>
-    <div class="accordion-content">
+    <div class="collapsible-content">
         <div ng-if="!!alternate" ng-show="visible" class="content slide" ng-transclude></div>
         <div class="title" ng-click="visible = !visible">{{title}}</div>
         <div ng-if="!alternate"  ng-show="visible" class="content slide" ng-transclude></div>

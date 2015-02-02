@@ -1,10 +1,10 @@
-angular.module( 'directives.imageAccordion.accordionRow', [])
+angular.module( 'directives.collapsible', [])
 
-.directive( 'accordionRow', [function ( ) {
+.directive( 'collapsible', [function ( ) {
         return {
             transclude: true,
             restrict: 'E',
-            templateUrl: 'directives/imageAccordion/accordionRow.tpl.html',
+            templateUrl: 'directives/collapsible/collapsible.tpl.html',
             scope: {
                 title: '@',
                 alternate: '='

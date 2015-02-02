@@ -1,5 +1,4 @@
-<image-accordion>
-    <accordion-row ng-repeat="n in [1,2,3,4]" title="Title - {{n}}" alternate="$index % 2">
+<collapsible ng-repeat="n in [1,2,3,4]" title="Title - {{n}}" alternate="$index % 2">
         Content - {{n}}<br/>
         Content - {{n}}<br/>
         Content - {{n}}<br/>
@@ -7,30 +6,29 @@
         Content - {{n}}<br/>
         Content - {{n}}<br/>
         Content - {{n}}<br/>
-    </accordion-row>
-    <!--<accordion-row ng-repeat="job in experience" title="{{job.title}}" alternate="$index % 2">-->
-        <!--<h3>Websites developed in this position</h3>-->
-        <!--<ul>-->
-            <!--<li ng-repeat="site in job.portfolio">-->
-                <!--{{site.title}} - <a href="{{site.url}}">{{site.url}}</a>-->
-                <!--<ul ng-if="site.description">-->
-                    <!--<li>{{site.description}}</li>-->
-                <!--</ul>-->
-            <!--</li>-->
-        <!--</ul>-->
+</collapsible>
+<!--<accordion-row ng-repeat="job in experience" title="{{job.title}}" alternate="$index % 2">-->
+    <!--<h3>Websites developed in this position</h3>-->
+    <!--<ul>-->
+        <!--<li ng-repeat="site in job.portfolio">-->
+            <!--{{site.title}} - <a href="{{site.url}}">{{site.url}}</a>-->
+            <!--<ul ng-if="site.description">-->
+                <!--<li>{{site.description}}</li>-->
+            <!--</ul>-->
+        <!--</li>-->
+    <!--</ul>-->
 
-        <!--<h3>Skills and languages used in this position</h3>-->
-        <!--<ul>-->
-            <!--<li ng-repeat="skill in job.skill">-->
-                <!--{{skill}}-->
-            <!--</li>-->
-        <!--</ul>-->
+    <!--<h3>Skills and languages used in this position</h3>-->
+    <!--<ul>-->
+        <!--<li ng-repeat="skill in job.skill">-->
+            <!--{{skill}}-->
+        <!--</li>-->
+    <!--</ul>-->
 
-        <!--<h3 ng-if="job.other.length > 0">Other skills applied in this position</h3>-->
-        <!--<ul ng-if="job.other.length > 0">-->
-            <!--<li ng-repeat="other in job.other">-->
-                <!--{{other}}-->
-            <!--</li>-->
-        <!--</ul>-->
-    <!--</accordion-row>-->
-</image-accordion>
+    <!--<h3 ng-if="job.other.length > 0">Other skills applied in this position</h3>-->
+    <!--<ul ng-if="job.other.length > 0">-->
+        <!--<li ng-repeat="other in job.other">-->
+            <!--{{other}}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</accordion-row>-->

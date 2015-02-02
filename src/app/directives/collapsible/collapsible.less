@@ -5,14 +5,14 @@
 @border-color: darken(@base-color, 20);
 @title-height: (@image-size - (2 * @border-size)) / 2;
 
-.accordion-row {
+.collapsible {
     width: 100%;
     box-sizing: border-box;
     padding: 0 @image-size;
     position: relative;
     background: @base-color;
     margin-top: -@border-size * 2;
-    .accordion-image {
+    .collapsible-image {
         position: absolute;
         left: 0;
         top: 0;
@@ -27,7 +27,7 @@
             height: 100%;
         }
     }
-    .accordion-content {
+    .collapsible-content {
         border-top: @border-size solid @border-color;
         border-right: @border-size solid @border-color;
         border-bottom: @border-size solid @border-color;
@@ -52,7 +52,7 @@
     }
     &.alternate {
         background: @alt-color;
-        .accordion-image {
+        .collapsible-image {
             left: initial;
             top: initial;
             right: 0;
@@ -60,7 +60,7 @@
             border-left: 0;
             border-right: @border-size solid @border-color;
         }
-        .accordion-content {
+        .collapsible-content {
             border-right: 0;
             border-left: @border-size solid @border-color;
         }
