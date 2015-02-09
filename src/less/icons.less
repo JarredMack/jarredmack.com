@@ -1,0 +1,20 @@
+@import (reference) 'main.less';
+
+@icon-size: 21px;
+@animation-duration: 0.5s;
+
+.icon {
+    width: @icon-size;
+    height: @icon-size;
+
+    &.expand {
+        background: url('/images/icons/expand.png');
+        .transform(rotate(0));
+
+        .transition-property(null;transform);
+        .transition-duration(@animation-duration);
+        &.open {
+            .transform(rotate(45deg));
+        }
+    }
+}

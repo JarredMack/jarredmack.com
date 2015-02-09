@@ -5,6 +5,7 @@
 
 .collapsible {
     width: 100%;
+    position: relative;
     .logo {
         width: @image-size;
         height: @image-size;
@@ -22,6 +23,12 @@
             font-size: @font-size-large;
             width: 100%;
         }
+    }
+    .icon {
+        position: absolute;
+        top: (@image-size / 2) - (@icon-size / 2) + @padding;
+        right: (@padding * 3);
+        cursor: pointer;
     }
     .collapsible-content {
         background: rgba(0, 0, 0, 0.5);
