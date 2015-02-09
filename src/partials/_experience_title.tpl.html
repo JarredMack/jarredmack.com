@@ -1,3 +1,9 @@
 <div class="experience-title">
-    {{data.description}}
+    <span class="desktop highlight">
+        {{data.started|date:'MMMM y'}}{{!!data.finished ? ' - ':' - Present'}}{{data.finished|date:'MMMM y'}} -
+    </span>
+    {{data.title}}
+    <span class="desktop">
+        at {{data.company}}
+    </span>
 </div>

@@ -7,5 +7,12 @@
     width: 100%;
     white-space: nowrap;
     display: block;
-    padding-right: 10px;
+    padding-right: @icon-size + (@padding * 3);
+    span {
+        display: inline-block;
+        &.highlight {
+            font-style: italic;
+        }
+    }
+
 }

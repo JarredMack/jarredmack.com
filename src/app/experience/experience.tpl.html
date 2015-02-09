@@ -1,4 +1,3 @@
-<!--<collapsible ng-repeat="job in experience" logo="job.logo" title="{{job.started|date:'MMMM yyyy'}}{{!!job.finished ? '-':'-Present'}}{{job.finished|date:'MMMM yyyy'}} - {{job.title}} at {{job.company}}">-->
 <collapsible ng-repeat="job in experience" logo="job.logo" title-template="'partials/_experience_title.tpl.html'" title-data="job">
     <div>{{job.description}}</div>
 
