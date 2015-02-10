@@ -1,7 +1,9 @@
 <collapsible ng-repeat="job in experience" logo="job.logo" title-template="'partials/_experience_title.tpl.html'" title-data="job">
-    <div>{{job.description}}</div>
+    <div>
+        {{job.description}}
+    </div>
 
-    <h3>Websites developed in this position</h3>
+    <h2>Developed in this position</h2>
     <ul>
         <li ng-repeat="site in job.portfolio">
             {{site.title}} - <a href="{{site.url}}">{{site.url}}</a>
