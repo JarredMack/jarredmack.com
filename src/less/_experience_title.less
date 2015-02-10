@@ -1,18 +1,46 @@
 @import (reference) 'main.less';
 
+@period-width: 225px;
+
 .experience-title {
-    font-size: @font-size-large;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 100%;
-    white-space: nowrap;
-    display: block;
-    padding-right: @icon-size + (@padding * 3);
-    span {
+    .center-content(false);
+    div {
         display: inline-block;
-        &.highlight {
-            font-style: italic;
+        font-size: @font-size-large;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: ~"calc(100% - (@{period-width} + @{padding}))";
+        white-space: nowrap;
+        &.period {
+            width: @period-width;
+            text-align: center;
+        }
+        &.role {
+            padding-right: @icon-size + (@padding * 3);
+            &.mobile {
+                width: 100%;
+            }
         }
     }
 
 }
+
+//@import (reference) 'main.less';
+//
+//.experience-title {
+//    display: block;
+//    padding-right: @icon-size + (@padding * 3);
+//    width: 100%;
+//    > div {
+//        display: inline-block;
+//        font-size: @font-size-large;
+//        text-overflow: ellipsis;
+//        overflow: hidden;
+//        white-space: nowrap;
+//        line-height: 100%;
+//        &.period {
+//            width: 225px;
+//            text-align: center;
+//        }
+//    }
+//}
