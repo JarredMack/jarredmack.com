@@ -64,6 +64,15 @@ a {
     height: 100%;
     position: relative;
     .center();
+    .half {
+        width: 50%;
+        float: left;
+    }
+    @media screen and (max-width: @breakpoint-mobile) {
+        .half {
+            width: 100%;
+        }
+    }
 }
 
 .mobile {

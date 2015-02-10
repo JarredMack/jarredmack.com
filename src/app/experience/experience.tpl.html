@@ -2,27 +2,31 @@
     <h1>{{job.title}} at {{job.company}}</h1>
     <p>{{job.description}}</p>
 
-    <h2>Developed in this position</h2>
-    <ul>
-        <li ng-repeat="site in job.portfolio">
-            {{site.title}} - <a href="{{site.url}}">{{site.url}}</a>
-            <ul ng-if="site.description">
-                <li>{{site.description}}</li>
+    <div class="container">
+        <div class="half">
+            <h2>Developed in this position</h2>
+            <div class="clearfix">
+                <div ng-repeat="site in job.portfolio" class="tile">
+                    asd
+                </div>
+            </div>
+        </div>
+        <div class="half">
+            <h3>Skills and languages</h3>
+            <ul class="fa-ul">
+                <li ng-repeat="skill in job.skill">
+                    <i class="fa-li fa fa-star"></i>
+                    {{skill}}
+                </li>
             </ul>
-        </li>
-    </ul>
 
-    <h3>Skills and languages used in this position</h3>
-    <ul>
-        <li ng-repeat="skill in job.skill">
-            {{skill}}
-        </li>
-    </ul>
-
-    <h3 ng-if="job.other.length > 0">Other skills applied in this position</h3>
-    <ul ng-if="job.other.length > 0">
-        <li ng-repeat="other in job.other">
-            {{other}}
-        </li>
-    </ul>
+            <h3 ng-if="job.other.length > 0">Other skills</h3>
+            <ul class="fa-ul" ng-if="job.other.length > 0">
+                <li ng-repeat="other in job.other">
+                    <i class="fa-li fa fa-star"></i>
+                    {{other}}
+                </li>
+            </ul>
+        </div>
+    </div>
 </collapsible>
