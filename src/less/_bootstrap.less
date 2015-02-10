@@ -5,7 +5,7 @@
  */
 
 @font-face {
-    font-family: 'Roboto';
+    font-family: @font-main;
     font-style: normal;
     font-weight: 400;
     src: local('Roboto Regular'), local('Roboto-Regular'), url(fonts/Roboto-Regular.woff) format('woff');
@@ -34,16 +34,18 @@ pre {
 
 div {
     color: @site-inverted-colour;
-    font-family: 'Helvetica', 'Arial';
+    font-family: @font-main;
     font-size: @font-size-small;
 }
 
 h1 {
+    margin-top: 0;
     font-size: @font-size-large;
 }
 
 h2, h3 {
     font-size: @font-size-medium;
+    margin: 10px 0;
 }
 
 a {

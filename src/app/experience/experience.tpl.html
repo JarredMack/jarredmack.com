@@ -1,7 +1,6 @@
 <collapsible ng-repeat="job in experience" logo="job.logo" title-template="'partials/_experience_title.tpl.html'" title-data="job">
-    <div>
-        {{job.description}}
-    </div>
+    <h1>{{job.title}} at {{job.company}}</h1>
+    <p>{{job.description}}</p>
 
     <h2>Developed in this position</h2>
     <ul>
