@@ -8,23 +8,33 @@ angular.module( 'jarredmack.about', [
 
 .config(function config( $stateProvider ) {
   $stateProvider.state( 'about', {
-    url: '/about',
+    url: '/',
     views: {
       "main": {
         controller: 'AboutCtrl',
         templateUrl: 'about/about.tpl.html'
       }
     },
-    data:{ pageTitle: 'What is It?' }
+    data:{ pageTitle: 'About Me' }
   });
 })
 
-.controller( 'AboutCtrl', ['$scope', 'JMApi', function AboutCtrl( $scope, JMApi ) {
+.controller( 'AboutCtrl', ['$scope', '$q', 'JMApi', function AboutCtrl( $scope, $q, JMApi ) {
+        var contentFeeds = [
+            'about',
+            'skills'
+        ];
 
-    JMApi.get('experience')
-        .then(function(response) {
-            console.log(response);
+        var promises = [];
+        _.forEach(contentFeeds, function(feed) {
+            promises.push(JMApi.get('content', feed));
         });
+
+        $q.all(promises)
+            .then(function(data) {
+                console.log(data);
+            });
+
 }])
 
 ;

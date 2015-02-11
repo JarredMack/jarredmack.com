@@ -15,7 +15,7 @@ angular.module( 'jarredmack', [
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/experience' );
+  $urlRouterProvider.otherwise( '/' );
 })
 
 .run( function run () {

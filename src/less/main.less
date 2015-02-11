@@ -21,12 +21,13 @@
 @import '_header.less';
 @import '_experience_title.less';
 @import '_footer.less';
+@import 'experience.less';
+@import 'about.less';
 
 /**
  * Module specific stylesheets
  */
 @import '../app/directives/collapsible/collapsible.less';
-@import '../app/experience/experience.less';
 
 /**
  * Site global styles
@@ -36,4 +37,10 @@
     background-size: cover;
     min-height: ~"calc(100% - @{header-size} - @{footer-size})";
     padding: 20px 0;
+}
+
+.content-panel {
+    width: 100%;
+    min-height: 600px;
+    background: rgba(0, 0, 0, 0.75);
 }

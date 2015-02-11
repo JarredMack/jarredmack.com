@@ -20,9 +20,14 @@ angular.module( 'services.jmapi', [])
          * HTTP Get from the API endpoint
          *
          * @param {String} endpoint
+         * @param {String} [identifier]
          */
-        this.get = function(endpoint) {
+        this.get = function(endpoint, identifier) {
             var deferred = $q.defer();
+
+            if(!!identifier) {
+                endpoint += '/' + identifier;
+            }
 
             if(!!self.cached.response[endpoint]) {
                 deferred.resolve(self.cached.response[endpoint]);
