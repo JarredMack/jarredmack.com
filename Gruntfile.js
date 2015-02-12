@@ -121,7 +121,7 @@ module.exports = function ( grunt ) {
       build_config_files: {
           files: [
               {
-                  src: [ '*.ico' ],
+                  src: [ '*.ico', '.htaccess' ],
                   dest: '<%= build_dir %>/',
                   cwd: 'src',
                   expand: true
@@ -521,7 +521,8 @@ module.exports = function ( grunt ) {
        */
       config: {
         files: [
-          'src/*.ico'
+          'src/*.ico',
+          'src/.htaccess'
         ],
         tasks: [ 'copy:build_config_files' ]
       },
