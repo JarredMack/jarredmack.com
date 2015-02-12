@@ -1,6 +1,14 @@
 <div class="content-panel">
     <tab-menu menu-items="pages"></tab-menu>
     <div ng-repeat="page in pages" ng-show="page.active" class="content-page">
-        <img ng-src="{{page.photo}}" alt=""/>
+        <div class="image">
+            <div>
+                <img ng-src="{{page.photo}}" alt=""/>
+            </div>
+        </div>
+        <div class="text">
+            <h1>{{page.displayTitle}}</h1>
+            {{page.content}}
+        </div>
     </div>
 </div>
