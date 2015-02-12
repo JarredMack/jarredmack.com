@@ -8,6 +8,7 @@ angular.module( 'jarredmack', [
   'services.jmapi',
 
   'directives.collapsible',
+  'directives.tabMenu',
 
   'ui.router',
   'ui.bootstrap',

@@ -20,19 +20,27 @@ angular.module( 'jarredmack.about', [
 })
 
 .controller( 'AboutCtrl', ['$scope', '$q', 'JMApi', function AboutCtrl( $scope, $q, JMApi ) {
-        var contentFeeds = [
-            'about',
-            'skills'
+        $scope.pages = [
+            {
+                title: 'about',
+                active: true
+            },
+            {
+                title: 'skills'
+            }
         ];
 
         var promises = [];
-        _.forEach(contentFeeds, function(feed) {
-            promises.push(JMApi.get('content', feed));
+        _.forEach($scope.pages, function(page) {
+            promises.push(JMApi.get('content', page.title));
         });
 
         $q.all(promises)
-            .then(function(data) {
-                console.log(data);
+            .then(function(response) {
+                _.forEach($scope.pages, function(page, key) {
+                    var data = _.find(response, {title: page.title});
+                    _.extend($scope.pages[key], data);
+                });
             });
 
 }])
