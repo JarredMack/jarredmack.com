@@ -1,0 +1,52 @@
+@import (reference) 'main.less';
+
+@tab-height: 30px;
+@tab-width: 100px;
+
+.tab-menu {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    height: @tab-height;
+    > div {
+        width: @tab-width;
+        line-height: @tab-height;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.8);
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 10px;
+
+        .link {
+            overflow: hidden;
+            white-space: nowrap;
+            height: 0px;
+            .transition-property(height);
+            .transition-duration(0.25s);
+        }
+        .tab {
+            width: 100%;
+            height: @tab-height / 4;
+            background: @site-base-colour;
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+        }
+
+        &:hover,
+        &.active {
+            .link {
+                height: @tab-height;
+            }
+        }
+        &.active {
+            .link {
+                color: @site-highlight-colour;
+            }
+            .tab {
+                background: @site-highlight-colour;
+            }
+        }
+    }
+}
