@@ -10,14 +10,7 @@
             </div>
         </div>
         <div class="menu">
-            <div class="desktop">
-                <ul>
-                    <li><a href="">Github</a></li>
-                    <li><a href="">Experience</a></li>
-                    <li><a href="">Portfilio</a></li>
-                    <li><a href="">About Me</a></li>
-                </ul>
-            </div>
+            <div ng-include="'partials/_menu.tpl.html'" class="desktop"></div>
             <div class="mobile">
                 <div class="hamburger" ng-click="menu.active = !menu.active" ng-class="{active: menu.active}">
                     <div class="top"></div>
@@ -27,12 +20,5 @@
             </div>
         </div>
     </div>
-    <div class="side-nav mobile" ng-class="{active: menu.active}">
-        <ul>
-            <li><a href="">Github</a></li>
-            <li><a href="">Experience</a></li>
-            <li><a href="">Portfilio</a></li>
-            <li><a href="">About Me</a></li>
-        </ul>
-    </div>
+    <div ng-include="'partials/_menu.tpl.html'" class="side-nav mobile" ng-class="{active: menu.active}"></div>
 </div>

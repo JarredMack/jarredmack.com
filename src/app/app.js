@@ -15,7 +15,8 @@ angular.module( 'jarredmack', [
   'placeholders'
 ])
 
-.config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
+.config( function myAppConfig ( $stateProvider, $urlRouterProvider, $locationProvider ) {
+        $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise( '/' );
 })
 
