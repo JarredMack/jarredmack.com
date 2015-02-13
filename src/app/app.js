@@ -10,6 +10,8 @@ angular.module( 'jarredmack', [
   'directives.collapsible',
   'directives.tabMenu',
 
+  'filters.raw',
+
   'ui.router',
   'ui.bootstrap',
   'placeholders'

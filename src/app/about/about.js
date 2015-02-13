@@ -30,6 +30,9 @@ angular.module( 'jarredmack.about', [
             },
             {
                 title: 'skills'
+            },
+            {
+                title: 'preferences'
             }
         ];
 
