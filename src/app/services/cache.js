@@ -4,31 +4,27 @@ angular.module( 'services.cache', [])
         var self = this;
 
         /** @var {Object} cached */
-        this.cached = {};
+        this.cache = {};
 
-        /** @var {Int} cached.expire Duration until the cache expires */
-        this.cached.expires = 1000 * 60 * 10;
+        /** @var {Int} cache.expire Duration until the cache expires */
+        this.cache.expires = 1000 * 60 * 10;
 
-        /** @var {Object} cached.response Cached response data */
-        this.cached.response = {};
+        /** @var {Object} cache.data Cached response data */
+        this.cache.data = {};
 
         /**
          * Fetch cached data
-         * @param identifier
+         * @param cacheString
          * @returns {Promise}
          */
-        this.fetch = function(identifier) {
+        this.fetch = function(cacheString) {
             var deferred = $q.defer();
 
-            if(self.cached[identifier]) {
-                deferred.resolve(self.cached.identifier);
+            if(self.cache.data[cacheString]) {
+                deferred.resolve(self.cache.data[cacheString]);
             } else {
                 deferred.reject();
             }
-//@TODO Sort this out
-            this.otherwise = function(callback) {
-
-            };
 
             return deferred.promise;
         };
@@ -39,10 +35,10 @@ angular.module( 'services.cache', [])
          * @param {Object} data
          */
         this.add = function(cacheString, data) {
-            self.cached.response[cacheString] = data;
+            self.cache.data[cacheString] = data;
             $timeout(function() {
-                self.cached.response[cacheString] = null;
-            }, self.cached.expires);
+                self.cache.data[cacheString] = null;
+            }, self.cache.expires);
         };
 
         return self;

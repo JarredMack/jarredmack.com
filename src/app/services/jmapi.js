@@ -1,4 +1,6 @@
-angular.module( 'services.jmapi', [])
+angular.module( 'services.jmapi', [
+    'services.cache'
+])
 
 .service( 'JMApi', ['$http', '$q', 'CacheService', function JMApi($http, $q, CacheService) {
         var self = this;
@@ -19,20 +21,24 @@ angular.module( 'services.jmapi', [])
             if(!!identifier) {
                 endpoint += '/' + identifier;
             }
-//@TODO use cache service
-            if(!!self.cached.response[endpoint]) {
-                deferred.resolve(self.cached.response[endpoint]);
-            } else {
-                $http.get(self.apiUrl + endpoint + '.json')
-                    .success(function(response) {
-                        addCache(endpoint, response);
-                        deferred.resolve(response);
-                    })
-                    .error(function(response) {
-                        deferred.reject(response);
-                    })
-                ;
-            }
+
+            var cacheString = 'JMApi:get:' + endpoint;
+
+            CacheService.fetch(cacheString)
+                .then(function(response) {
+                    deferred.resolve(response);
+                }, function() {
+                    //Otherwise
+                    $http.get(self.apiUrl + endpoint + '.json')
+                        .success(function(response) {
+                            CacheService.add(cacheString, response);
+                            deferred.resolve(response);
+                        })
+                        .error(function(response) {
+                            deferred.reject(response);
+                        })
+                    ;
+                });
 
             return deferred.promise;
         };
