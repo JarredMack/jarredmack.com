@@ -14,7 +14,7 @@ angular.module( 'services.cache', [])
 
         /**
          * Fetch cached data
-         * @param cacheString
+         * @param {String} cacheString
          * @returns {Promise}
          */
         this.fetch = function(cacheString) {

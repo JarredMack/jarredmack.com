@@ -4,7 +4,7 @@
  * build process will exclude all `.spec.js` files from the build
  * automatically.
  */
-describe( 'API request handling service', function() {
+describe( 'The API request handling service', function() {
     var $mockHttp, $rootScope, JMApi, theResponse;
 
     beforeEach( module( 'services.jmapi' ) );
