@@ -13,17 +13,15 @@
         </div>
         <div class="half">
             <h3>Skills and languages</h3>
-            <ul class="fa-ul">
+            <ul>
                 <li ng-repeat="skill in job.skill">
-                    <i class="fa-li fa fa-star"></i>
                     {{skill}}
                 </li>
             </ul>
 
             <h3 ng-if="job.other.length > 0">Other skills</h3>
-            <ul class="fa-ul" ng-if="job.other.length > 0">
+            <ul ng-if="job.other.length > 0">
                 <li ng-repeat="other in job.other">
-                    <i class="fa-li fa fa-star"></i>
                     {{other}}
                 </li>
             </ul>
