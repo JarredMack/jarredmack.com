@@ -19,6 +19,21 @@ angular.module( 'jarredmack', [
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider, $locationProvider ) {
     $locationProvider.html5Mode(true);
+
+    $stateProvider.state( 'home', {
+        url: '/',
+        views: {
+            "main": {
+                controller: 'AboutCtrl',
+                templateUrl: 'about/about.tpl.html'
+            }
+        },
+        data:{
+            pageTitle: 'About Me',
+            active: 'about'
+        }
+    });
+
     $urlRouterProvider.otherwise( '/' );
 })
 
