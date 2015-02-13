@@ -39,7 +39,7 @@ angular.module( 'jarredmack.about', [
         //@TODO Move this stuff to a content service
         $scope.pages = [
             {
-                title: 'about'
+                title: 'me'
             },
             {
                 title: 'skills'

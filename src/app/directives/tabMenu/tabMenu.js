@@ -6,7 +6,8 @@ angular.module( 'directives.tabMenu', [])
             restrict: 'E',
             templateUrl: 'directives/tabMenu/tabMenu.tpl.html',
             scope: {
-                menuItems: '='
+                menuItems: '=',
+                baseRoute: '='
             },
             link: function($scope, element, attrs) {
                 $scope.setActive = function(item) {
