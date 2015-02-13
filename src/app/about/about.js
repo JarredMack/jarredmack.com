@@ -15,7 +15,10 @@ angular.module( 'jarredmack.about', [
         templateUrl: 'about/about.tpl.html'
       }
     },
-    data:{ pageTitle: 'About Me' }
+    data:{
+        pageTitle: 'About Me',
+        active: 'about'
+    }
   });
 })
 

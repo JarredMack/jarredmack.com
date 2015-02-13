@@ -16,8 +16,8 @@ angular.module( 'jarredmack', [
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider, $locationProvider ) {
-        $locationProvider.html5Mode(true);
-  $urlRouterProvider.otherwise( '/' );
+    $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise( '/' );
 })
 
 .run( function run () {
@@ -27,6 +27,7 @@ angular.module( 'jarredmack', [
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
         if ( angular.isDefined( toState.data.pageTitle ) ) {
             $scope.pageTitle = toState.data.pageTitle + ' | JarredMack.com' ;
+            $scope.active = toState.data.active;
         }
 
         $scope.menu = {

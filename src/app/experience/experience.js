@@ -9,7 +9,10 @@ angular.module( 'jarredmack.experience', [])
         templateUrl: 'experience/experience.tpl.html'
       }
     },
-    data:{ pageTitle: 'Employment History' }
+    data:{
+        pageTitle: 'Employment History',
+        active: 'experience'
+    }
   });
 })
 
