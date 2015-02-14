@@ -10,10 +10,12 @@
     <div class="container">
         <div class="half">
             <h2>Developed in this position</h2>
-            <div class="clearfix">
-                <div ng-repeat="site in job.portfolio" class="tile">
-                    asd
-                </div>
+            <div class="tiles">
+                <a ng-repeat="site in job.portfolio" href="/portfolio/{{site.title}}">
+                    <div>
+                        <img src="{{site.logo}}" alt=""/>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="half">
