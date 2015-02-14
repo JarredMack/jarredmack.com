@@ -6,6 +6,7 @@ angular.module( 'jarredmack', [
   'jarredmack.experience',
 
   'services.jmapi',
+  'services.content',
 
   'directives.collapsible',
   'directives.tabMenu',

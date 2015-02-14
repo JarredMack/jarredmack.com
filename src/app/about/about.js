@@ -3,7 +3,7 @@ angular.module( 'jarredmack.about', [
   'placeholders',
   'ui.bootstrap',
 
-  'services.jmapi'
+  'services.content'
 ])
 
 .config(function config( $stateProvider ) {
@@ -35,40 +35,25 @@ angular.module( 'jarredmack.about', [
   });
 })
 
-.controller( 'AboutCtrl', ['$scope', '$q', '$state', 'JMApi', function AboutCtrl( $scope, $q, $state, JMApi ) {
-        //@TODO Move this stuff to a content service
-        $scope.pages = [
-            {
-                title: 'me'
-            },
-            {
-                title: 'skills'
-            },
-            {
-                title: 'preferences'
-            }
-        ];
+.controller( 'AboutCtrl', ['$scope', '$state', 'ContentService', function AboutCtrl( $scope, $state, ContentService ) {
+        $scope.pages = [];
 
-        var currentPage = _.find($scope.pages, { title: $state.params.page });
-        if(currentPage) {
-            currentPage.active = true;
-        } else {
-            $scope.pages[0].active = true;
-        }
+        $scope.feeds = ['me', 'skills', 'preferences'];
 
-        var promises = [];
-        _.forEach($scope.pages, function(page) {
-            promises.push(JMApi.get('content', page.title));
-        });
+        ContentService.fetchMany($scope.feeds)
+            .then(function(pages) {
+                $scope.pages = pages;
 
-        $q.all(promises)
-            .then(function(response) {
-                _.forEach($scope.pages, function(page, key) {
-                    var data = _.find(response, {title: page.title});
-                    _.extend($scope.pages[key], data);
-                });
+                var $page = _.find($scope.pages, { title: $state.params.page });
+
+                if(angular.isUndefined($scope.pages[0].active)) {
+                    if($page) {
+                        $page.active = true;
+                    } else {
+                        $scope.pages[0].active = true;
+                    }
+                }
             });
-
 }])
 
 ;
