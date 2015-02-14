@@ -17,7 +17,7 @@
         cursor: pointer;
         width: 100%;
         height: @image-size + (2 * @padding);
-        background: rgba(0, 0, 0, 0.75);
+        background: @site-background-thick;
         padding-left: @image-size + (@padding * 3);
         > div {
             font-size: @font-size-large;
@@ -31,7 +31,7 @@
         cursor: pointer;
     }
     .collapsible-content {
-        background: rgba(0, 0, 0, 0.5);
+        background: @site-background-thin;
         overflow: hidden;
         > div {
             padding: @padding * 3;

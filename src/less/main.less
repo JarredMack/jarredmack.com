@@ -38,14 +38,14 @@
     background: url('/images/background.jpg') no-repeat center;
     background-size: cover;
     min-height: ~"calc(100% - @{header-size} - @{footer-size})";
-    padding: 20px 0;
+    padding: @gutter-size 0;
 }
 
 .content-panel {
     width: 100%;
     max-width: 900px;
     height: 600px;
-    background: rgba(0, 0, 0, 0.75);
+    background: @site-background-thin;
     position: relative;
     margin-top: @tab-height; //_tab_menu.less
     .center();
