@@ -46,7 +46,7 @@ angular.module( 'jarredmack.about', [
 
                 var $page = _.find($scope.pages, { title: $state.params.page });
 
-                if(angular.isUndefined($scope.pages[0].active)) {
+                if(!_.find($scope.pages, { active: true })) {
                     if($page) {
                         $page.active = true;
                     } else {

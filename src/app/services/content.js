@@ -1,10 +1,9 @@
 /*jshint es5: true */
 angular.module( 'services.content', [
-    'services.jmapi',
-    'services.cache'
+    'services.jmapi'
 ])
 
-.service( 'ContentService', [ '$q', 'JMApi', 'CacheService', function ContentService($q, JMApi, CacheService) {
+.service( 'ContentService', [ '$q', 'JMApi', function ContentService($q, JMApi) {
         var self = this;
 
         /** @param {String} endpoint API Content endpoint */
@@ -19,21 +18,12 @@ angular.module( 'services.content', [
         this.fetch = function(identifier) {
             var deferred = $q.defer();
 
-            var cacheString = 'ContentService:fetch:' + identifier;
-
-            CacheService.fetch(cacheString)
-                .then(function(cached) {
-                    deferred.resolve(cached);
-                }, function() {
-                    //Otherwise
-                    JMApi.get(self.endpoint, identifier)
-                        .then(function(response) {
-                            CacheService.add(cacheString, response);
-                            deferred.resolve(response);
-                        })
-                        .catch(function(e) {
-                            deferred.reject(e);
-                        });
+            JMApi.get(self.endpoint, identifier)
+                .then(function(response) {
+                    deferred.resolve(response);
+                })
+                .catch(function(e) {
+                    deferred.reject(e);
                 });
 
             return deferred.promise;
