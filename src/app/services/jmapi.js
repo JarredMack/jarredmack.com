@@ -7,6 +7,7 @@ angular.module( 'services.jmapi', [
 .service( 'JMApi', ['$http', '$q', 'CacheService', 'Config', function JMApi($http, $q, CacheService, Config) {
         var self = this;
 
+        /** @param {String} apiUrl */
         this.apiUrl = Config.apiUrl;
 
         /**
