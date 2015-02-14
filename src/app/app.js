@@ -26,7 +26,7 @@ angular.module( 'jarredmack', [
         views: {
             "main": {
                 controller: 'AboutCtrl',
-                templateUrl: 'about/about.tpl.html'
+                templateUrl: 'views/about.tpl.html'
             }
         },
         data:{

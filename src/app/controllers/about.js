@@ -12,7 +12,7 @@ angular.module( 'jarredmack.about', [
     views: {
       "main": {
         controller: 'AboutCtrl',
-        templateUrl: 'about/about.tpl.html'
+        templateUrl: 'views/about.tpl.html'
       }
     },
     data:{
@@ -25,7 +25,7 @@ angular.module( 'jarredmack.about', [
     views: {
       "main": {
         controller: 'AboutCtrl',
-        templateUrl: 'about/about.tpl.html'
+        templateUrl: 'views/about.tpl.html'
       }
     },
     data:{

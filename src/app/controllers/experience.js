@@ -6,7 +6,7 @@ angular.module( 'jarredmack.experience', [])
     views: {
       "main": {
         controller: 'ExperienceCtrl',
-        templateUrl: 'experience/experience.tpl.html'
+        templateUrl: 'views/experience.tpl.html'
       }
     },
     data:{
