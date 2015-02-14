@@ -1,11 +1,13 @@
 angular.module( 'services.jmapi', [
+    'site.config',
+
     'services.cache'
 ])
 
-.service( 'JMApi', ['$http', '$q', 'CacheService', function JMApi($http, $q, CacheService) {
+.service( 'JMApi', ['$http', '$q', 'CacheService', 'Config', function JMApi($http, $q, CacheService, Config) {
         var self = this;
-//@TODO Pull in config file for API URL etc
-        this.apiUrl = 'http://api.jarredmack.local/';
+
+        this.apiUrl = Config.apiUrl;
 
         /**
          * Get Method

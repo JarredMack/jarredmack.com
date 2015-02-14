@@ -605,13 +605,22 @@ module.exports = function ( grunt ) {
   /**
    * The `build` task gets your app ready to run for development and testing.
    */
-  grunt.registerTask( 'build', [
+  grunt.registerTask( 'bpbuild', [
     'clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
     'concat:build_css', 'copy:build_app_assets', 'copy:build_app_images',
     'copy:build_config_files', 'copy:build_app_partials', 'copy:build_vendor_assets',
     'copy:build_appjs', 'copy:build_vendorjs', 'index:build', 'karmaconfig',
     'karma:continuous' 
   ]);
+
+  /**
+   * Build with environment config
+   */
+  grunt.task.registerTask( "build", function ( env ) {
+      env = env || "dev";
+      grunt.config.set( "env", env );
+      grunt.task.run( "bpbuild" );
+  });
 
   /**
    * The `compile` task gets your app ready for deployment by concatenating and
