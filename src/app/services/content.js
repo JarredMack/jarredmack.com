@@ -6,19 +6,17 @@ angular.module( 'services.content', [
 .service( 'ContentService', [ '$q', 'JMApi', function ContentService($q, JMApi) {
         var self = this;
 
-        /** @param {String} endpoint API Content endpoint */
-        this.endpoint = 'content';
-
         /**
          * Fetch data from a single feed and resolve an object
          *
-         * @param {String} identifier
+         * @param {String} endpoint
+         * @param {String} [identifier]
          * @returns {Promise}
          */
-        this.fetch = function(identifier) {
+        this.fetch = function(endpoint, identifier) {
             var deferred = $q.defer();
 
-            JMApi.get(self.endpoint, identifier)
+            JMApi.get(endpoint, identifier)
                 .then(function(response) {
                     deferred.resolve(response);
                 })
@@ -32,15 +30,16 @@ angular.module( 'services.content', [
         /**
          * Fetch multiple feeds and resolve an array
          *
+         * @param {String} endpoint
          * @param {Array} feeds
          * @returns {Promise}
          */
-        this.fetchMany = function(feeds) {
+        this.fetchMany = function(endpoint, feeds) {
             var deferred = $q.defer();
 
             var promises = [];
             _.forEach(feeds, function(feed) {
-                promises.push(self.fetch(feed));
+                promises.push(self.fetch(endpoint, feed));
             });
 
             $q.all(promises)

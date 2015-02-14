@@ -1,11 +1,11 @@
 <div class="collapsible">
     <img class="logo" ng-src="{{logo}}" alt=""/>
-    <div class="title" ng-click="visible = !visible">
+    <div class="title" ng-click="collapsed = !collapsed">
         <div ng-if="!!titleTemplate" ng-include="titleTemplate" onload="data = titleData"></div>
         <div ng-if="!titleTemplate">{{title}}</div>
     </div>
-    <div class="icon expand" ng-class="{open: visible}" ng-click="visible = !visible"></div>
-    <div ng-show="visible" class="collapsible-content slide-down">
+    <div class="icon expand" ng-class="{ open: !collapsed }" ng-click="collapsed = !collapsed"></div>
+    <div ng-show="collapsed" class="collapsible-content slide-down">
         <div ng-transclude></div>
     </div>
 </div>

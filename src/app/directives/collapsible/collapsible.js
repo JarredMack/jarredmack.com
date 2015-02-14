@@ -9,10 +9,8 @@ angular.module( 'directives.collapsible', [])
                 title: '@',
                 logo: '=',
                 titleTemplate: '=',
-                titleData: '='
-            },
-            link: function(scope, element, attrs) {
-                scope.visible = false;
+                titleData: '=',
+                collapsed: '='
             }
         };
 }])

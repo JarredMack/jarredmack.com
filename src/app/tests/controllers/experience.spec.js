@@ -11,16 +11,16 @@ describe( 'The experience controller', function() {
         $rootScope = _$rootScope_;
         $scope = {};
         var deferred = $q.defer();
-        var dummyAPI = {
-            get: function() {
+        var dummyContentService = {
+            fetch: function() {
                 deferred.resolve([{ data: "test" }]);
                 return deferred.promise;
             }
         };
-        controller = $controller('ExperienceCtrl', { $scope: $scope, JMApi: dummyAPI });
+        controller = $controller('ExperienceCtrl', { $scope: $scope, ContentService: dummyContentService });
     }));
 
-    it('should assign the results of JMApi.get to the scope', function() {
+    it('should fetch content and apply to the scope', function() {
         expect($scope.experience).toBeUndefined();
         $rootScope.$apply();
         expect($scope.experience).toBeDefined();
@@ -30,7 +30,6 @@ describe( 'The experience controller', function() {
     it('should add a default visible property to all elements', function() {
         $rootScope.$apply();
         expect($scope.experience[0].visible).toBeDefined();
-        expect($scope.experience[0].visible).toEqual(false);
     });
 });
 

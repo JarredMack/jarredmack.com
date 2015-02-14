@@ -40,7 +40,7 @@ angular.module( 'jarredmack.about', [
 
         $scope.feeds = ['me', 'skills', 'preferences'];
 
-        ContentService.fetchMany($scope.feeds)
+        ContentService.fetchMany('content', $scope.feeds)
             .then(function(pages) {
                 $scope.pages = pages;
 

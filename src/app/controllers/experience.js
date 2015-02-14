@@ -16,13 +16,16 @@ angular.module( 'jarredmack.experience', [])
   });
 })
 
-.controller( 'ExperienceCtrl', ['$scope', 'JMApi', function ExperienceCtrl( $scope, JMApi ) {
+.controller( 'ExperienceCtrl', ['$scope', 'ContentService', function ExperienceCtrl( $scope, ContentService ) {
 
-    JMApi.get('experience')
-        .then(function(response) {
-            $scope.experience = _.merge([{
-                visible: false
-            }], response);
+    ContentService.fetch('experience')
+        .then(function(experience) {
+            $scope.experience = experience;
+            _.forEach($scope.experience, function(exp) {
+                if(angular.isUndefined(exp.visible)) {
+                    exp.visible = false;
+                }
+            });
         });
 }])
 

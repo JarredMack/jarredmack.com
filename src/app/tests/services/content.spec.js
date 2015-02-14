@@ -34,7 +34,7 @@ describe( 'The content handling service', function() {
     } );
 
     it('should fetch a single feed from the API', function() {
-        ContentService.fetch('1')
+        ContentService.fetch('', '1')
             .then(function(response) {
                 theResponse = response;
             });
@@ -43,7 +43,7 @@ describe( 'The content handling service', function() {
     });
 
     it('should fetch multiple feeds from the API', function() {
-        ContentService.fetchMany(['1', '2'])
+        ContentService.fetchMany('', ['1', '2'])
             .then(function(response) {
                 theResponse = response;
             });

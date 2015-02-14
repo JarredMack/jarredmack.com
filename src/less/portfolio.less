@@ -5,6 +5,7 @@
 .portfolio-container {
     margin-left: -@gutter-size;
     text-align: center;
+    cursor: pointer;
     > div {
         margin-left: @gutter-size;
         margin-bottom: @gutter-size;
@@ -35,12 +36,21 @@
                 .transform(rotateY(0deg));
             }
             .back {
+                padding: @gutter-size;
+                text-align: left;
                 .transform(rotateY(180deg));
             }
         }
-        &:hover {
+        &:hover,
+        &.selected {
             .card-flip {
                 .transform(rotateY(180deg));
+            }
+        }
+        &.selected {
+            border: 2px solid fadeout(@site-highlight-colour, 55%);
+            .back {
+                padding: @gutter-size - 2px;
             }
         }
     }
