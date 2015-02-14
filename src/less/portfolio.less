@@ -1,0 +1,47 @@
+@import (reference) 'main.less';
+
+@tile-size: 376px;
+
+.portfolio-container {
+    margin-left: -@gutter-size;
+    text-align: center;
+    > div {
+        margin-left: @gutter-size;
+        margin-bottom: @gutter-size;
+        width: @tile-size;
+        height: @tile-size;
+        display: inline-block;
+
+        perspective: 1000;
+
+        .card-flip {
+            position: relative;
+            transform-style: preserve-3d;
+            width: 100%;
+            height: 100%;
+
+            .transition-duration(0.5s);
+            > div {
+                backface-visibility: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: fadeout(@site-inverted-colour, 55%);
+            }
+            .front {
+                .center-content();
+                .transform(rotateY(0deg));
+            }
+            .back {
+                .transform(rotateY(180deg));
+            }
+        }
+        &:hover {
+            .card-flip {
+                .transform(rotateY(180deg));
+            }
+        }
+    }
+}
