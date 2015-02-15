@@ -12,18 +12,23 @@
 
 @import '../../vendor/bootstrap/less/bootstrap.less';
 
+//Helpers
 @import 'variables.less';
 @import 'helpers.less';
 @import 'animations.less';
 @import 'icons.less';
 
+//Partials
 @import '_bootstrap.less';
 @import '_header.less';
 @import '_experience_title.less';
 @import '_footer.less';
+
+//Routes
 @import 'about.less';
 @import 'experience.less';
 @import 'portfolio.less';
+@import 'contact.less';
 
 /**
  * Directive stylesheets
@@ -48,6 +53,7 @@
     background: @site-background-thin;
     position: relative;
     margin-top: @tab-height; //_tab_menu.less
+    padding: @gutter-size;
     .center();
 }
 

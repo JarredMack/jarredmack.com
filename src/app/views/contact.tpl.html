@@ -1,0 +1,15 @@
+<div class="contact content-panel">
+    <div class="half">
+        a contact form
+    </div>
+    <div class="half contact-details">
+        <img src="{{contact.photo}}" alt="{{contact.name}}"/>
+        <h2>{{contact.name}}</h2>
+        <div class="details clearfix">
+            <div ng-repeat="detail in contact.details">
+                <div class="contact-type">{{detail.displayTitle}}:</div>
+                <div class="detail">{{detail.detail}}</div>
+            </div>
+        </div>
+    </div>
+</div>

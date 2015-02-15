@@ -1,0 +1,25 @@
+@import (reference) 'main.less';
+
+.content-panel.contact {
+    .contact-details {
+        text-align: center;
+        .details {
+            > div {
+                margin-left: -@gutter-size;
+                > div {
+                    width: ~"calc(50% - @{gutter-size})";
+                    float: left;
+                    margin-left: @gutter-size;
+                }
+                .contact-type {
+                    text-align: right;
+                    font-weight: bold;
+                    width: ~"calc(50% - @{gutter-size} - 35px)"; // Arbitrarily offsetting to center better
+                }
+                .detail {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

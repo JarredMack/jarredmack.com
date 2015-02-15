@@ -5,6 +5,7 @@ angular.module( 'jarredmack', [
   'jarredmack.about',
   'jarredmack.experience',
   'jarredmack.portfolio',
+  'jarredmack.contact',
 
   'services.jmapi',
   'services.content',
