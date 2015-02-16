@@ -1,6 +1,6 @@
 <div class="contact content-panel">
-    <div class="half">
-        a contact form
+    <div class="half desktop">
+        <div ng-include="'/partials/form/_contact.tpl.html'"></div>
     </div>
     <div class="half contact-details">
         <img src="{{contact.photo}}" alt="{{contact.name}}"/>
@@ -11,5 +11,8 @@
                 <div class="detail">{{detail.detail}}</div>
             </div>
         </div>
+    </div>
+    <div class="half mobile">
+        <div ng-include="'/partials/form/_contact.tpl.html'"></div>
     </div>
 </div>
