@@ -1,10 +1,12 @@
 <form name="formContact" ng-controller="FormContactCtrl" novalidate>
     <div class="form-row">
-        <label for="name">Your Name/Company</label>
+        <label for="name">Your Name/Company*</label>
+        <label class="error" ng-show="formContact.name.$touched && formContact.name.$dirty && formContact.name.$error.required">Please let me know who you are!</label>
         <input name="name" id="name" ng-model="query.name" type="text" required/>
     </div>
     <div class="form-row">
-        <label for="email">Your Email Address</label>
+        <label for="email">Your Email Address*</label>
+        <label class="error" ng-show="formContact.email.$touched && formContact.email.$dirty && (formContact.email.$error.required || formContact.email.$error.email)">Please enter a valid email.</label>
         <input name="email" id="email" ng-model="query.email" type="email" required/>
     </div>
     <div class="form-row half">
@@ -12,16 +14,21 @@
         <input name="budget" id="budget" ng-model="query.budget" type="text"/>
     </div>
     <div class="form-row half">
-        <label for="duration">Estimated Duration</label>
+        <label for="duration">Estimated Duration*</label>
+        <label class="error" ng-show="formContact.duration.$touched && formContact.duration.$dirty && formContact.duration.$error.required">Please choose an estimated duration.</label>
         <select name="duration" id="duration" ng-model="query.duration" required>
-
+            <option value=""></option>
+            <option value="1-3 months">1-3 Months</option>
+            <option value="3-6 months">3-6 Months</option>
+            <option value="6+ months">6+ Months</option>
         </select>
     </div>
     <div class="form-row">
-        <label for="description">Project Description</label>
+        <label for="description">Project Description*</label>
+        <label class="error" ng-show="formContact.description.$touched && formContact.description.$dirty && formContact.description.$error.required">Please enter a brief description.</label>
         <textarea name="description" rows="5" id="description" ng-model="query.description" type="text" required></textarea>
     </div>
     <div class="form-row">
-        <button ng-click="submit()">Send</button>
+        <button ng-click="submit()" ng-disabled="!formContact.$valid">Send</button>
     </div>
 </form>
