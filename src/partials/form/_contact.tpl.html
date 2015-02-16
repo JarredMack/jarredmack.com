@@ -1,27 +1,27 @@
-<form action="">
+<form name="formContact" ng-controller="FormContactCtrl" novalidate>
     <div class="form-row">
         <label for="name">Your Name/Company</label>
-        <input name="name" id="name" type="text"/>
+        <input name="name" id="name" ng-model="query.name" type="text" required/>
     </div>
     <div class="form-row">
         <label for="email">Your Email Address</label>
-        <input name="email" id="email" type="text"/>
+        <input name="email" id="email" ng-model="query.email" type="email" required/>
     </div>
     <div class="form-row half">
         <label for="budget">Expected Budget/Rate</label>
-        <input name="budget" id="budget" type="text"/>
+        <input name="budget" id="budget" ng-model="query.budget" type="text"/>
     </div>
     <div class="form-row half">
         <label for="duration">Estimated Duration</label>
-        <select name="duration" id="duration">
+        <select name="duration" id="duration" ng-model="query.duration" required>
 
         </select>
     </div>
     <div class="form-row">
         <label for="description">Project Description</label>
-        <textarea name="description" rows="5" id="description" type="text"></textarea>
+        <textarea name="description" rows="5" id="description" ng-model="query.description" type="text" required></textarea>
     </div>
     <div class="form-row">
-        <button>Send</button>
+        <button ng-click="submit()">Send</button>
     </div>
 </form>

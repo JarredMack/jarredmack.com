@@ -17,7 +17,7 @@ angular.module( 'jarredmack.contact', [])
   ;
 })
 
-.controller( 'ContactCtrl', ['$scope', 'ContentService', function PortfolioCtrl( $scope, ContentService ) {
+.controller( 'ContactCtrl', ['$scope', 'ContentService', function ContactCtrl( $scope, ContentService ) {
     ContentService.fetch('contact')
         .then(function(contact) {
             $scope.contact = contact[0];

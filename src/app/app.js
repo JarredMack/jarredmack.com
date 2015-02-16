@@ -7,6 +7,8 @@ angular.module( 'jarredmack', [
   'jarredmack.portfolio',
   'jarredmack.contact',
 
+  'form.contact',
+
   'services.jmapi',
   'services.content',
 
