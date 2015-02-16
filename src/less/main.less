@@ -85,9 +85,18 @@ form {
             color: @site-colour-dark;
             padding: 0 10px;
         }
+        button {
+            padding: 10px 30px;
+            background: @site-highlight-colour;
+            border: 0;
+            font-size: @font-size-medium;
+        }
         &.half {
             float: left;
             width: ~"calc(50% - @{gutter-size})";
+        }
+        &:last-child {
+            text-align: right;
         }
     }
     @media screen and (max-width: @breakpoint-mobile) {
@@ -96,6 +105,9 @@ form {
             margin-left: 0;
             &.half {
                 width: 100%;
+            }
+            &:last-child {
+                text-align: center;
             }
         }
     }
