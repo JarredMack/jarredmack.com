@@ -1,6 +1,7 @@
 angular.module( 'form.contact', [])
 
-.controller( 'FormContactCtrl', ['$scope', 'CacheService', function FormContactCtrl( $scope, CacheService ) {
+.controller( 'FormContactCtrl', ['$scope', 'CacheService', 'JMApi',
+        function FormContactCtrl( $scope, CacheService, JMApi ) {
 
     var cacheString = 'form:contact:query';
     CacheService.fetch(cacheString)
@@ -12,7 +13,9 @@ angular.module( 'form.contact', [])
         });
 
     $scope.submit = function() {
-        console.log($scope.query, $scope.formContact);
+        if($scope.formContact.$valid) {
+            JMApi.post('contact', $scope.query);
+        }
     };
 }])
 

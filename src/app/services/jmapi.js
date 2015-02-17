@@ -17,6 +17,7 @@ angular.module( 'services.jmapi', [
          *
          * @param {String} endpoint
          * @param {String} [identifier]
+         * @returns {Promise}
          */
         this.get = function(endpoint, identifier) {
             var deferred = $q.defer();
@@ -46,7 +47,28 @@ angular.module( 'services.jmapi', [
             return deferred.promise;
         };
 
-        //POST Method(?) - HTTP POST to endpoint
+        /**
+         * Post method
+         *
+         * HTTP POST to an API endpoint
+         *
+         * @param {String} endpoint
+         * @param {Object} data
+         * @returns {Promise}
+         */
+        this.post = function(endpoint, data) {
+            var deferred = $q.defer();
+
+            $http.post(self.apiUrl + endpoint + '.json', data)
+                .success(function(response) {
+                    deferred.resolve(response);
+                })
+                .error(function(response) {
+                    deferred.reject(response);
+                });
+
+            return deferred.promise;
+        };
 
         return self;
     }
