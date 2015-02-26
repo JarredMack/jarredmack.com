@@ -20,7 +20,7 @@ angular.module( 'factories.availability', [
                         if (!!current.finished) {
                             if (new Date(current.finished) > new Date()) {
                                 status = 2; // Available soon
-                                title = 'Available ' + $filter('date')(current.finished, 'MMM yyyy');
+                                title = 'Available ' + $filter('date')(current.finished, 'MMMM yyyy');
                             } else {
                                 status = 1; // Available now
                             }
