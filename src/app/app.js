@@ -2,6 +2,8 @@ angular.module( 'jarredmack', [
   'templates-app',
   'templates-common',
 
+  'site.config',
+
   'jarredmack.about',
   'jarredmack.experience',
   'jarredmack.portfolio',
@@ -34,7 +36,7 @@ angular.module( 'jarredmack', [
             }
         },
         data:{
-            pageTitle: 'About Me',
+            pageTitle: 'Homepage',
             active: 'about'
         }
     });
@@ -45,7 +47,7 @@ angular.module( 'jarredmack', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, ContentService, Config ) {
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
         if ( angular.isDefined( toState.data.pageTitle ) ) {
             $scope.pageTitle = toState.data.pageTitle + ' | JarredMack.com' ;
@@ -56,6 +58,13 @@ angular.module( 'jarredmack', [
             active: false
         };
     });
+
+    ContentService.fetch('contact', Config.contact)
+        .then(function(contact) {
+            $scope.details = {};
+            $scope.details.email = _.find(contact.details, { title: 'email' } );
+            $scope.details.phone = _.find(contact.details, { title: 'phone' } );
+        });
 })
 
 ;

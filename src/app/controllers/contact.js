@@ -17,15 +17,15 @@ angular.module( 'jarredmack.contact', [])
   ;
 })
 
-.controller( 'ContactCtrl', ['$scope', 'ContentService', function ContactCtrl( $scope, ContentService ) {
+.controller( 'ContactCtrl', ['$scope', 'ContentService', 'Config', function ContactCtrl( $scope, ContentService, Config ) {
     ContentService.fetch('content', 'contact')
         .then(function(content) {
             $scope.content = content;
         });
 
-    ContentService.fetch('contact')
+    ContentService.fetch('contact', Config.contact)
         .then(function(contact) {
-            $scope.contact = contact[0];
+            $scope.contact = contact;
         });
 }])
 
