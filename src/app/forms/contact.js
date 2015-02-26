@@ -13,8 +13,12 @@ angular.module( 'form.contact', [])
         });
 
     $scope.submit = function() {
+        //@TODO Clear the form, show a spinner while submitting, then show thanks message
         if($scope.formContact.$valid) {
-            JMApi.post('contact', $scope.query);
+            JMApi.post('contact', $scope.query)
+                .then(function() {
+                    //Show success message
+                });
         }
     };
 }])

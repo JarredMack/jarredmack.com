@@ -1,5 +1,7 @@
 <div class="contact content-panel">
     <div class="half desktop">
+        <h1>{{content.displayTitle}}</h1>
+        <div ng-bind-html="content.content | raw"></div>
         <div ng-include="'/partials/form/_contact.tpl.html'"></div>
     </div>
     <div class="half contact-details">
@@ -13,6 +15,8 @@
         </div>
     </div>
     <div class="half mobile">
+        <h1>{{content.displayTitle}}</h1>
+        <div ng-bind-html="content.content | raw"></div>
         <div ng-include="'/partials/form/_contact.tpl.html'"></div>
     </div>
 </div>
