@@ -6,26 +6,26 @@ angular.module( 'form.contact', [])
 
     var cacheString = 'form:contact:query';
     CacheService.fetch(cacheString)
-        .then(function(query) {
-            $scope.query = query;
+        .then(function(data) {
+            $scope.data = data;
         }, function() {
-            $scope.query = {};
-            CacheService.add(cacheString, $scope.query);
+            $scope.data = {};
+            CacheService.add(cacheString, $scope.data);
         });
 
     $scope.submit = function() {
         if($scope.formContact.$valid) {
-            $scope.processing = true;
-            $scope.error = false;
-            $scope.submitted = false;
-            JMApi.post('contact', $scope.query)
+            $scope.data.processing = true;
+            $scope.data.error = false;
+            $scope.data.submitted = false;
+            JMApi.post('contact', $scope.data.query)
                 .then(function() {
-                    $scope.processing = false;
-                    $scope.submitted = true;
+                    $scope.data.processing = false;
+                    $scope.data.submitted = true;
                 })
                 .catch(function(e) {
-                    $scope.processing = false;
-                    $scope.error = true;
+                    $scope.data.processing = false;
+                    $scope.data.error = true;
                 });
         }
     };
