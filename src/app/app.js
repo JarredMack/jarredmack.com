@@ -11,6 +11,8 @@ angular.module( 'jarredmack', [
 
   'form.contact',
 
+  'factories.availability',
+
   'services.jmapi',
   'services.content',
 
@@ -47,7 +49,7 @@ angular.module( 'jarredmack', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location, ContentService, Config ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, ContentService, Config, availability ) {
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
         if ( angular.isDefined( toState.data.pageTitle ) ) {
             $scope.pageTitle = toState.data.pageTitle + ' | JarredMack.com' ;
@@ -65,6 +67,10 @@ angular.module( 'jarredmack', [
             $scope.details.email = _.find(contact.details, { title: 'email' } );
             $scope.details.phone = _.find(contact.details, { title: 'phone' } );
         });
+
+    availability.process().then(function(status) {
+        $scope.availability = status;
+    });
 })
 
 ;

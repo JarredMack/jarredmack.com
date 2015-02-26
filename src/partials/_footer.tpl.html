@@ -6,7 +6,9 @@
             <div>E: <a href="mailto:{{details.email.detail}}">{{details.email.detail}}</a></div>
             <div>M: {{details.phone.detail}}</div>
 
-            <div class="employment-status">Employment Status: <span class="unavailable">Unavailable</span></div>
+            <div class="employment-status">
+                Availability: <span class="{{availability.type}}">{{availability.status}}</span>
+            </div>
         </div>
         <div class="copyright">
             Website Design and Development by Jarred Mack. Copyright &copy; 2015.
