@@ -8,8 +8,8 @@
     <p>{{job.description}}</p>
 
     <div class="container">
-        <div class="half">
-            <h2>Developed in this position</h2>
+        <div class="half" ng-if="job.portfolio.length > 0">
+            <h2>Portfolio</h2>
             <div class="tiles">
                 <a ng-repeat="site in job.portfolio" href="/portfolio/{{site.title}}">
                     <div>
@@ -18,17 +18,17 @@
                 </a>
             </div>
         </div>
-        <div class="half">
-            <h3>Skills and languages</h3>
-            <ul>
-                <li ng-repeat="skill in job.skills">
+        <div class="half skills">
+            <h3>Skills applied</h3>
+            <ul class="clearfix">
+                <li ng-repeat="skill in job.skills" class="half">
                     {{skill}}
                 </li>
             </ul>
 
             <h3 ng-if="job.other.length > 0">Other skills</h3>
-            <ul ng-if="job.other.length > 0">
-                <li ng-repeat="other in job.other">
+            <ul ng-if="job.other.length > 0" class="clearfix">
+                <li ng-repeat="other in job.other" class="half">
                     {{other}}
                 </li>
             </ul>
