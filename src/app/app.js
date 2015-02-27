@@ -23,7 +23,8 @@ angular.module( 'jarredmack', [
 
   'ui.router',
   'ui.bootstrap',
-  'placeholders'
+  'placeholders',
+  'ngAnimate'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider, $locationProvider ) {

@@ -1,29 +1,39 @@
 @import (reference) 'main.less';
 
 @image-width: 300px;
-.content-page {
-    width: 100%;
-    height: 100%;
+.content-panel {
     .clearfix();
-    .image {
+    position: relative;
+    .content-page {
+        width: 100%;
         height: 100%;
-        float: left;
-        width: @image-width;
-    }
-    .text {
-        height: 100%;
-        margin-left: @gutter-size;
-        float: left;
-        width: ~"calc(100% - @{image-width} - (@{gutter-size} * 2))";
-    }
-    @media screen and (max-width: @breakpoint-mobile) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: @gutter-size;
+        .clearfix();
         .image {
-            width: 100%;
-            .center-content();
+            height: 100%;
+            float: left;
+            width: @image-width;
         }
         .text {
-            margin: @gutter-size 0;
-            width: 100%;
+            height: 100%;
+            margin-left: @gutter-size;
+            float: left;
+            &.floated {
+                width: ~"calc(100% - @{image-width} - (@{gutter-size} * 2))";
+            }
+        }
+        @media screen and (max-width: @breakpoint-mobile) {
+            .image {
+                width: 100%;
+                .center-content();
+            }
+            .text {
+                margin: @gutter-size 0;
+                width: 100%;
+            }
         }
     }
 }

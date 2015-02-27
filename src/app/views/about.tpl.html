@@ -1,12 +1,12 @@
 <div class="content-panel">
     <tab-menu menu-items="pages" base-route="'/about'"></tab-menu>
-    <div ng-repeat="page in pages" ng-show="page.active" class="content-page">
-        <div class="image">
+    <div ng-repeat="page in pages" ng-if="page.active" class="content-page ng-fade">
+        <div class="image" ng-if="!!page.photo">
             <div>
                 <img ng-src="{{page.photo}}" alt=""/>
             </div>
         </div>
-        <div class="text">
+        <div class="text" ng-class="{ floated: !!page.photo }">
             <h1>{{page.displayTitle}}</h1>
             <div ng-bind-html="page.content | raw"></div>
         </div>

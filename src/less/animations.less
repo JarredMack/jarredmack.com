@@ -16,6 +16,27 @@
     }
 }
 
+.ng-fade {
+    &.ng-enter,
+    &.ng-leave {
+        .transition-property(opacity);
+        .transition-timing-function(linear);
+        .transition-duration(0.25s);
+    }
+    &.ng-enter {
+        opacity: 0;
+        &.ng-enter-active {
+            opacity: 1;
+        }
+    }
+    &.ng-leave {
+        opacity: 1;
+        &.ng-leave-active {
+            opacity: 0;
+        }
+    }
+}
+
 /**
  * Animated Elements
  */
