@@ -6,7 +6,6 @@
     position: relative;
     .content-page {
         width: 100%;
-        height: 100%;
         position: absolute;
         top: 0;
         left: 0;
@@ -16,9 +15,11 @@
             height: 100%;
             float: left;
             width: @image-width;
+            img {
+                max-width: 100%;
+            }
         }
         .text {
-            height: 100%;
             margin-left: @gutter-size;
             float: left;
             &.floated {
@@ -32,7 +33,9 @@
             }
             .text {
                 margin: @gutter-size 0;
-                width: 100%;
+                &.floated {
+                    width: 100%;
+                }
             }
         }
     }
