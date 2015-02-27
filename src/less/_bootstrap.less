@@ -68,8 +68,16 @@ a:focus {
         width: 50%;
         float: left;
     }
+    .third {
+        width: ~"calc(33% - @{gutter-size})";
+    }
+    .two-third {
+        width: ~"calc(66% - @{gutter-size})";
+    }
     @media screen and (max-width: @breakpoint-mobile) {
-        .half {
+        .half,
+        .third,
+        .two-third {
             width: 100%;
         }
     }
