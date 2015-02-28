@@ -3,8 +3,6 @@
 @image-width: 300px;
 .content-panel.about {
     .content-page {
-        width: 100%;
-        padding: @gutter-size;
         .clearfix();
         .image {
             height: 100%;
@@ -15,9 +13,9 @@
             }
         }
         .text {
-            margin-left: @gutter-size;
             float: left;
             &.floated {
+                margin-left: @gutter-size;
                 width: ~"calc(100% - @{image-width} - (@{gutter-size} * 2))";
             }
         }
@@ -27,8 +25,8 @@
                 .center-content();
             }
             .text {
-                margin: @gutter-size 0;
                 &.floated {
+                    margin: @gutter-size 0;
                     width: 100%;
                 }
             }
