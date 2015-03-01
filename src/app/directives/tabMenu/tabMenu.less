@@ -23,8 +23,8 @@
             white-space: nowrap;
 //            height: 0px;
             height: @tab-height;
-            .transition-property(height);
-            .transition-duration(0.25s);
+            .transition-property(height, color);
+            .transition-duration(@transition-duration);
         }
         .tab {
             width: 100%;
@@ -33,10 +33,13 @@
             position: absolute;
             bottom: 100%;
             left: 0;
+            .transition-property(background);
+            .transition-duration(@transition-duration);
         }
 
         &:hover,
         &.active {
+            background: @site-background-thin;
             .link {
                 height: @tab-height;
             }

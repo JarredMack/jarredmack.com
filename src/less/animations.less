@@ -8,7 +8,7 @@
 
     .transition-property(all);
     .transition-timing-function(linear);
-    .transition-duration(0.25s);
+    .transition-duration(@transition-duration);
 
     &.ng-hide {
         max-height: 0;
@@ -21,11 +21,11 @@
     &.ng-leave {
         .transition-property(opacity);
         .transition-timing-function(linear);
-        .transition-duration(0.25s);
+        .transition-duration(@transition-duration);
     }
     &.ng-enter {
         opacity: 0;
-        .transition-delay(0.1s);
+        .transition-delay(@transition-duration / 2);
         &.ng-enter-active {
             opacity: 1;
         }
