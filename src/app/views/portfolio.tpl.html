@@ -1,19 +1,19 @@
 <div class="portfolio-container">
     <div ng-repeat="portfolio in portfolios" ng-class="{ selected: portfolio.active }">
-        <a href="{{portfolio.url}}" target="_blank">
-            <div class="card-flip">
-                <div class="front">
-                    <div>
-                        <img src="{{portfolio.logo}}" alt="{{portfolio.title}}"/>
-                    </div>
+        <div class="card-flip">
+            <div class="front" ng-click="portfolio.active = true">
+                <div>
+                    <img src="{{portfolio.logo}}" alt="{{portfolio.title}}"/>
                 </div>
+            </div>
+            <a href="{{portfolio.url}}" target="_blank">
                 <div class="back">
                     <div class="logo-small">
                         <img src="{{portfolio.logo}}" alt="{{portfolio.displayTitle}}"/>
                     </div>
                     <div ng-bind-html="portfolio.content | raw"></div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
     </div>
 </div>
