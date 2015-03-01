@@ -45,6 +45,14 @@
         left: @gutter-size;
         margin-right: @gutter-size;
         opacity: 1;
+        &.ng-fade-centered {
+            top: 0;
+            left: 0;
+            right: 0;
+            margin-right: 0;
+            padding-left: 15px; //Account for bootstrap padding on container
+            padding-right: 15px; //Account for bootstrap padding on container
+        }
         &.ng-leave-active {
             opacity: 0;
         }
