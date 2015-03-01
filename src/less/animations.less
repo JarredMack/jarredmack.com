@@ -4,14 +4,14 @@
  * Transition Animations
  */
 .slide-down {
-    max-height: 300px;
+    max-height: 0;
 
     .transition-property(all);
     .transition-timing-function(linear);
     .transition-duration(@transition-duration);
 
-    &.ng-hide {
-        max-height: 0;
+    &.open {
+        max-height: 300px;
         display: block !important;
     }
 }
