@@ -4,15 +4,24 @@
  * Transition Animations
  */
 .slide-down {
-    max-height: 0;
+    max-height: @slide-height;
 
     .transition-property(all);
     .transition-timing-function(linear);
     .transition-duration(@transition-duration);
 
-    &.open {
-        max-height: 300px;
+    &.ng-hide-add {
+        max-height: @slide-height;
         display: block !important;
+        &.ng-hide-add-active {
+            max-height: 0;
+        }
+    }
+    &.ng-hide-remove {
+        max-height: 0;
+        &.ng-hide-remove-active {
+            max-height: @slide-height;
+        }
     }
 }
 

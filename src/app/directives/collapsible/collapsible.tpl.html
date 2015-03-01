@@ -5,7 +5,7 @@
         <div ng-if="!titleTemplate">{{title}}</div>
     </div>
     <div class="icon expand" ng-class="{ open: collapsed }" ng-click="collapsed = !collapsed"></div>
-    <div ng-class="{ open: collapsed }" class="collapsible-content slide-down">
+    <div ng-show="collapsed" class="collapsible-content slide-down">
         <div ng-transclude></div>
     </div>
 </div>
