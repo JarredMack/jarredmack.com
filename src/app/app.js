@@ -50,7 +50,7 @@ angular.module( 'jarredmack', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location, ContentService, Config, availability ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $window, ContentService, Config, availability ) {
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
         if ( angular.isDefined( toState.data.pageTitle ) ) {
             $scope.pageTitle = toState.data.pageTitle + ' | JarredMack.com' ;
@@ -60,6 +60,8 @@ angular.module( 'jarredmack', [
         $scope.menu = {
             active: false
         };
+
+        $window.ga('send', 'pageview', { page: $location.url() });
     });
 
     ContentService.fetch('contact', Config.contact)
