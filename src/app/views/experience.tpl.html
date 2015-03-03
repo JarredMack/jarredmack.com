@@ -5,7 +5,7 @@
         title-data="job"
         collapsed="job.visible">
     <h1>{{job.title}} at {{job.company}}</h1>
-    <p>{{job.description}}</p>
+    <div ng-bind-html="job.content | raw"></div>
 
     <div class="container">
         <div class="half" ng-if="job.portfolio.length > 0">
