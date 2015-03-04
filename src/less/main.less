@@ -41,7 +41,8 @@
  * Site global styles
  */
 .content {
-    background: @background-sky;
+    background: @background-sky-start;
+    background: -webkit-linear-gradient(@background-sky-start, @background-sky-end);
     min-height: ~"calc(100% - @{header-size} - @{footer-size})";
     padding: @gutter-size 0;
     position: relative;
