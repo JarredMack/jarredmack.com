@@ -45,12 +45,13 @@
     min-height: ~"calc(100% - @{header-size} - @{footer-size})";
     padding: @gutter-size 0;
     position: relative;
+    overflow: hidden;
     .bg {
         position: absolute;
         width: 100%;
         &.bottom {
             bottom: 0;
-            height: 700px;
+            padding-bottom: 16.5%; //1400x231 image
             background: url('/images/bg-bottom.png') no-repeat center;
             background-size: cover;
         }
