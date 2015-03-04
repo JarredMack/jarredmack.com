@@ -18,6 +18,17 @@ $ grunt watch
 
 Finally, open `file:///path/to/jarredmack.com/build/index.html` in your browser.
 
+## Production Builds
+
+This site has configurable environments that are built through Grunt tasks. Add your file
+to /src/config/[env].config.js - the default build environment is "dev". To build:
+
+```sh
+$ grunt build:[env]
+```
+
+And copy your files as required!
+
 ## Fork Me!
 
 Have a suggestion? Think I could be doing something better? Go ahead and give me a fork, I'm always open to feedback! Alternatively, you can [shoot me an email](mailto:contact@jarredmack.com)!
