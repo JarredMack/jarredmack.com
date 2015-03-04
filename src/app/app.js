@@ -53,7 +53,7 @@ angular.module( 'jarredmack', [
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $window, ContentService, Config, availability ) {
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
         if ( angular.isDefined( toState.data.pageTitle ) ) {
-            $scope.pageTitle = toState.data.pageTitle + ' | JarredMack.com' ;
+            $scope.pageTitle = toState.data.pageTitle + ' | Jarred Mack - Front End Developer' ;
             $scope.active = toState.data.active;
         }
 
