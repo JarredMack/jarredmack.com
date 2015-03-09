@@ -12,6 +12,7 @@ angular.module( 'jarredmack', [
   'form.contact',
 
   'factories.availability',
+  'factories.status',
 
   'services.jmapi',
   'services.content',
@@ -50,7 +51,7 @@ angular.module( 'jarredmack', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $window, ContentService, Config, availability ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $window, ContentService, Config, availability, status ) {
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
         if ( angular.isDefined( toState.data.pageTitle ) ) {
             $scope.pageTitle = toState.data.pageTitle + ' | Jarred Mack - Front End Developer' ;
@@ -74,6 +75,8 @@ angular.module( 'jarredmack', [
     availability.process().then(function(status) {
         $scope.availability = status;
     });
+
+    $scope.status = status;
 })
 
 ;

@@ -45,6 +45,7 @@
     </head>
     <body>
         <div ng-include="'partials/_header.tpl.html'"></div>
+        <div ng-include="'partials/_error.tpl.html'" ng-show="status.get() == 'error'"></div>
 
         <div class="content">
             <div class="container">

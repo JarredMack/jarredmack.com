@@ -1,9 +1,10 @@
 /*jshint es5: true */
 angular.module( 'services.content', [
-    'services.jmapi'
+    'services.jmapi',
+    'factories.status'
 ])
 
-.service( 'ContentService', [ '$q', 'JMApi', function ContentService($q, JMApi) {
+.service( 'ContentService', [ '$q', 'JMApi', 'status', function ContentService($q, JMApi, status) {
         var self = this;
 
         /**
@@ -16,11 +17,13 @@ angular.module( 'services.content', [
         this.fetch = function(endpoint, identifier) {
             var deferred = $q.defer();
 
+            status.clear();
             JMApi.get(endpoint, identifier)
                 .then(function(response) {
                     deferred.resolve(response);
                 })
                 .catch(function(e) {
+                    status.set('error');
                     deferred.reject(e);
                 });
 

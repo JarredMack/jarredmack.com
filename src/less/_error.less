@@ -1,0 +1,20 @@
+@import (reference) 'main.less';
+
+.error-banner {
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    background: @site-error-colour;
+
+    opacity: 1;
+    &.ng-hide {
+        display: block !important;
+        opacity: 0;
+    }
+    .container {
+        color: @site-colour-dark;
+        p {
+            margin: 10px 0;
+        }
+    }
+}
