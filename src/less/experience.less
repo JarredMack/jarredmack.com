@@ -15,7 +15,7 @@
                 height: 100px;
                 float: left;
                 background: fadeout(@site-inverted-colour, 15%);
-                margin: 0 (@gutter-size / 2);
+                margin: 0 (@gutter-size / 2) (@gutter-size /2);
                 img {
                     max-width: 80px;
                     max-height: 80px;
@@ -26,6 +26,9 @@
             li.half {
                 margin-top: 0;
                 width: 50%;
+                @media screen and (max-width: @breakpoint-mobile) {
+                    width: 100%;
+                }
             }
         }
     }
