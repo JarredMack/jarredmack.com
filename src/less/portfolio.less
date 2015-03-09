@@ -14,14 +14,15 @@
         display: inline-block;
         max-width: ~"calc(100% - @{gutter-size})";
 
+        -webkit-perspective: 1000;
         perspective: 1000;
-
         .card-flip {
             position: relative;
-            transform-style: preserve-3d;
             width: 100%;
             height: 100%;
 
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
             .transition-duration(@flip-duration);
             .front,
             .back {
