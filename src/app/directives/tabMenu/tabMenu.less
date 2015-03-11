@@ -1,7 +1,8 @@
 @import (reference) '../../../less/main.less';
 
 @tab-height: 30px;
-@tab-width: 100px;
+@tab-width: 125px;
+@tab-width-mobile: 80px;
 
 .tab-menu {
     position: absolute;
@@ -17,12 +18,18 @@
         cursor: pointer;
         display: inline-block;
         margin-right: 10px;
+        padding: 0 10px;
+
+        @media screen and (max-width: @breakpoint-mobile) {
+            width: @tab-width-mobile;
+        }
 
         .transition-property(background);
         .transition-duration(@transition-duration);
         .link {
             overflow: hidden;
             white-space: nowrap;
+            text-overflow: ellipsis;
 //            height: 0px;
             height: @tab-height;
             .transition-property(height, color);
